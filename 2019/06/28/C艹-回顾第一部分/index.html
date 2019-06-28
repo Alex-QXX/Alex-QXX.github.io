@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Alex-Qin的博客</title>
+  <title>C++回顾第一部分 | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+  <meta name="description" content="一、函数与参数1、传值参数考察一个函数来计算表达式a+b*c,其中，a，b，c是整数，结果也是一个整数，所以有 123int abc(int a, int b, int c)&amp;#123;    reture a + b *c;&amp;#125;  a，b，c都是函数abc的形参，调用的时候：z=abc(2,x,y)2，x，y为对应的实参。 a,b,c实际上是传值参数，在函数执行前，把实参复制给形参，这个">
 <meta name="keywords" content="深度学习,卷积神经网络,CNN,计算机视觉,CV,医疗影像处理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alex-Qin的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++回顾第一部分">
+<meta property="og:url" content="http://yoursite.com/2019/06/28/C艹-回顾第一部分/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
-<meta property="og:description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+<meta property="og:description" content="一、函数与参数1、传值参数考察一个函数来计算表达式a+b*c,其中，a，b，c是整数，结果也是一个整数，所以有 123int abc(int a, int b, int c)&amp;#123;    reture a + b *c;&amp;#125;  a，b，c都是函数abc的形参，调用的时候：z=abc(2,x,y)2，x，y为对应的实参。 a,b,c实际上是传值参数，在函数执行前，把实参复制给形参，这个">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-06-28T12:40:46.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alex-Qin的博客">
-<meta name="twitter:description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+<meta name="twitter:title" content="C++回顾第一部分">
+<meta name="twitter:description" content="一、函数与参数1、传值参数考察一个函数来计算表达式a+b*c,其中，a，b，c是整数，结果也是一个整数，所以有 123int abc(int a, int b, int c)&amp;#123;    reture a + b *c;&amp;#125;  a，b，c都是函数abc的形参，调用的时候：z=abc(2,x,y)2，x，y为对应的实参。 a,b,c实际上是传值参数，在函数执行前，把实参复制给形参，这个">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -138,103 +139,150 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-C艹-回顾第一部分" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      C++回顾第一部分
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/28/C艹-回顾第一部分/" class="archive-article-date">
+
+        
+        <a href="/2019/06/28/C艹-回顾第一部分/" class="archive-article-date">
   	<time datetime="2019-06-28T04:31:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/28/C艹-回顾第一部分/">C++回顾第一部分</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、函数与参数"><a href="#一、函数与参数" class="headerlink" title="一、函数与参数"></a>一、函数与参数</h2><h5 id="1、传值参数"><a href="#1、传值参数" class="headerlink" title="1、传值参数"></a>1、传值参数</h5><p>考察一个函数来计算表达式<code>a+b*c</code>,其中，a，b，c是整数，结果也是一个整数，所以有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int abc(int a, int b, int c)&#123;</span><br><span class="line">    reture a + b *c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>a，b，c都是函数abc的<strong>形参</strong>，调用的时候：<code>z=abc(2,x,y)</code>2，x，y为对应的<strong>实参</strong>。</p>
+<p>a,b,c实际上是<strong>传值参数</strong>，在函数执行前，把实参复制给形参，这个过程是由形参类型的<strong>复制构造函数</strong>来完成。</p>
+<p>如果实参和形参的类型不同，必须进行类型转换，实参会转换成形参的类型。</p>
+<p>当函数运行结束的时候，形参的<strong>析构函数</strong>被调用，释放形参。</p>
+<p>当函数运行完后，形参的值不会被复制到对于的实参中。<strong>因此，函数调用是不会修改与形参对应实参的值</strong>。</p>
+<h5 id="2、模板函数"><a href="#2、模板函数" class="headerlink" title="2、模板函数"></a>2、模板函数</h5><p>如果希望编写一段通用的函数来计算所有类型变量的a，b，c的<code>a+b*c</code>，那么可以使用模板语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">T abc(T a, T b, T c)&#123;</span><br><span class="line">    return a + b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h5 id="3、引用参数"><a href="#3、引用参数" class="headerlink" title="3、引用参数"></a>3、引用参数</h5><p>使用传值参数会增加程序的运行时间，因为需要复制实参的值给形参，当T为一个自定义数据类型matrix，那么当matrix有1000个元素时，调用abc函数时至少需要3000次复制操作，abc结束时，析构函数需要进行3000次释放操作。</p>
+<p>使用引用参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">T abc(T&amp; a, T&amp; b, T&amp; c)&#123;</span><br><span class="line">    return a + b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在调用时：<code>abc(x,y,z)</code>，x，y，z实参分别是a，b，c的别名，在函数执行期间，并没有赋值操作，函数结束时也没有调用析构函数。<br>引用参数</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/28/C艹-回顾第一部分/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/26/我的第一篇blog/" class="archive-article-date">
-  	<time datetime="2019-06-26T05:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/26/我的第一篇blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇blog</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/26/我的第一篇blog/">我的第一篇blog</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/26/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-26T05:39:39.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/26/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -257,8 +305,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

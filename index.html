@@ -140,6 +140,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C艹-回顾第一部分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/28/C艹-回顾第一部分/">C++回顾第一部分</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/28/C艹-回顾第一部分/" class="archive-article-date">
+  	<time datetime="2019-06-28T04:31:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、函数与参数"><a href="#一、函数与参数" class="headerlink" title="一、函数与参数"></a>一、函数与参数</h2><h5 id="1、传值参数"><a href="#1、传值参数" class="headerlink" title="1、传值参数"></a>1、传值参数</h5><p>考察一个函数来计算表达式<code>a+b*c</code>,其中，a，b，c是整数，结果也是一个整数，所以有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int abc(int a, int b, int c)&#123;</span><br><span class="line">    reture a + b *c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>a，b，c都是函数abc的<strong>形参</strong>，调用的时候：<code>z=abc(2,x,y)</code>2，x，y为对应的<strong>实参</strong>。</p>
+<p>a,b,c实际上是<strong>传值参数</strong>，在函数执行前，把实参复制给形参，这个过程是由形参类型的<strong>复制构造函数</strong>来完成。</p>
+<p>如果实参和形参的类型不同，必须进行类型转换，实参会转换成形参的类型。</p>
+<p>当函数运行结束的时候，形参的<strong>析构函数</strong>被调用，释放形参。</p>
+<p>当函数运行完后，形参的值不会被复制到对于的实参中。<strong>因此，函数调用是不会修改与形参对应实参的值</strong>。</p>
+<h5 id="2、模板函数"><a href="#2、模板函数" class="headerlink" title="2、模板函数"></a>2、模板函数</h5><p>如果希望编写一段通用的函数来计算所有类型变量的a，b，c的<code>a+b*c</code>，那么可以使用模板语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">T abc(T a, T b, T c)&#123;</span><br><span class="line">    return a + b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、引用参数"><a href="#3、引用参数" class="headerlink" title="3、引用参数"></a>3、引用参数</h5><p>使用传值参数会增加程序的运行时间，因为需要复制实参的值给形参，当T为一个自定义数据类型matrix，那么当matrix有1000个元素时，调用abc函数时至少需要3000次复制操作，abc结束时，析构函数需要进行3000次释放操作。</p>
+<p>使用引用参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">T abc(T&amp; a, T&amp; b, T&amp; c)&#123;</span><br><span class="line">    return a + b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在调用时：<code>abc(x,y,z)</code>，x，y，z实参分别是a，b，c的别名，在函数执行期间，并没有赋值操作，函数结束时也没有调用析构函数。<br>引用参数</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/28/C艹-回顾第一部分/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一篇blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
