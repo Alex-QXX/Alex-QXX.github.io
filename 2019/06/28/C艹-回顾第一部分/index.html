@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href>
   <title>C++回顾：第一部分 | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、函数与参数1、传值参数考察一个函数来计算表达式a+b*c,其中，a，b，c是整数，结果也是一个整数，所以有 123int abc1(int a, int b, int c)&amp;#123;    reture a + b * c;&amp;#125;  a，b，c都是函数abc的形参，调用的时候：z=abc(2,x,y)2，x，y为对应的实参。 a,b,c实际上是传值参数，在函数执行前，把实参复制给形参，">
 <meta name="keywords" content="深度学习,卷积神经网络,CNN,计算机视觉,CV,医疗影像处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++回顾：第一部分">
-<meta property="og:url" content="http://yoursite.com/2019/06/28/C艹-回顾第一部分/index.html">
+<meta property="og:url" content="/2019/06/28/C艹-回顾第一部分/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
 <meta property="og:description" content="一、函数与参数1、传值参数考察一个函数来计算表达式a+b*c,其中，a，b，c是整数，结果也是一个整数，所以有 123int abc1(int a, int b, int c)&amp;#123;    reture a + b * c;&amp;#125;  a，b，c都是函数abc的形参，调用的时候：z=abc(2,x,y)2，x，y为对应的实参。 a,b,c实际上是传值参数，在函数执行前，把实参复制给形参，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/C艹-回顾第一部分/1561983072125.png">
-<meta property="og:updated_time" content="2019-07-01T12:40:30.196Z">
+<meta property="og:image" content="/2019/06/28/C艹-回顾第一部分/1561983072125.png">
+<meta property="og:updated_time" content="2019-07-01T13:02:47.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++回顾：第一部分">
 <meta name="twitter:description" content="一、函数与参数1、传值参数考察一个函数来计算表达式a+b*c,其中，a，b，c是整数，结果也是一个整数，所以有 123int abc1(int a, int b, int c)&amp;#123;    reture a + b * c;&amp;#125;  a，b，c都是函数abc的形参，调用的时候：z=abc(2,x,y)2，x，y为对应的实参。 a,b,c实际上是传值参数，在函数执行前，把实参复制给形参，">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/28/C艹-回顾第一部分/1561983072125.png">
+<meta name="twitter:image" content="/2019/06/28/C艹-回顾第一部分/1561983072125.png">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -49,11 +49,11 @@
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<a href="/" class="profilepic">
+		<a href="/blog/" class="profilepic">
 			<img src="/assets/blogImg/touxiang1.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Alex-Qin</a></h1>
+		  <h1 class="header-author"><a href="/blog/">Alex-Qin</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">研一小菜鸡</p>
@@ -216,7 +216,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">excpt_func</span><span class="params">()</span> <span class="title">noexcept</span><span class="params">( expression )</span></span>;   </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">excpt_func</span><span class="params">()</span> <span class="keyword">noexcept</span></span>;</span><br></pre></td></tr></table></figure>
 
 <p>这个版本逻辑比较简单，expression 表达式的结果会被转换成bool类型，当为true表示不抛出异常，false则有可能抛出异常。如果直接写上<code>noexcept</code>则表示不抛出异常。</p>
-<h5 id="番外、const-char-、char-const-、char-const的区别"><a href="#番外、const-char-、char-const-、char-const的区别" class="headerlink" title="番外、const char*、char const*、char* const的区别"></a>番外、const char*、char const*、char* const的区别</h5><p>在之前异常处理的过程中，catch需要捕捉的是abc6函数<code>throw &quot;所有参数都应该大于0&quot;;</code>，该异常是char<em>类型的<strong>常量</strong>，所以catch块应该写成`catch (const char </em>e){}<code>，或者写成</code>catch (char const <em>e){}<code>或者</code>catch (const char e[]){}<code>。事实上，这是由于直接throw一个双引号包起来的字符串，事实上是抛出了一个char类型的数组，我们知道，C++中的char类型应该只能是单引号包起来的一个字符，当单引号内部的字符超过一个会进行**覆盖**。而</code>throw “所有参数都应该大于0”;<code>看似是个string类的字符串，string一个是标准库的类，这么写throw是肯定不可能直接抛出string的。所以，这里抛出的其实是个**字符类型的数组**，或者说是一个**字符指针**，这也就是</code>catch (const char </em>e){}<code>和</code>catch (const char e[]){}`都能够捕捉的原因。</p>
+<h5 id="番外、const-char-、char-const-、char-const的区别"><a href="#番外、const-char-、char-const-、char-const的区别" class="headerlink" title="番外、const char*、char const*、char* const的区别"></a>番外、const char*、char const*、char* const的区别</h5><p>在之前异常处理的过程中，catch需要捕捉的是abc6函数<code>throw &quot;所有参数都应该大于0&quot;;</code>，该异常是char*类型的<strong>常量</strong>，所以catch块应该写成<code>catch (const char *e){}</code>，或者写成<code>catch (char const *e){}</code>或者<code>catch (const char e[]){}</code>。事实上，这是由于直接throw一个双引号包起来的字符串，事实上是抛出了一个char类型的数组，我们知道，C++中的char类型应该只能是单引号包起来的一个字符，当单引号内部的字符超过一个会进行<strong>覆盖</strong>。而<code>throw &quot;所有参数都应该大于0&quot;;</code>看似是个string类的字符串，string一个是标准库的类，这么写throw是肯定不可能直接抛出string的。所以，这里抛出的其实是个<strong>字符类型的数组</strong>，或者说是一个<strong>字符指针</strong>，这也就是<code>catch (const char *e){}</code>和<code>catch (const char e[]){}</code>都能够捕捉的原因。</p>
 <p>字符指针是一个比较绕人的点，其可以有多种不同的写法，下面主要研究下标题中的三种写法的区别。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s1[] = &#123; <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span> ,<span class="string">'\0'</span> &#125;;</span><br><span class="line"><span class="keyword">char</span> s2[] = &#123; <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span> ,<span class="string">'\0'</span> &#125;;</span><br><span class="line"><span class="keyword">char</span> *p1 = s1;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* p2 = s1;</span><br><span class="line"><span class="keyword">char</span> <span class="keyword">const</span>* p3 = s1; </span><br><span class="line"><span class="keyword">char</span>* <span class="keyword">const</span> p4 = s1;</span><br></pre></td></tr></table></figure>
 
@@ -234,7 +234,7 @@
 <p>看到这里或许有疑问：既然在编译的时候不知道数组的大小，那么为什么不能够使用<code>float x[n];</code>来创建数组呢？这里的n只要我在程序中定义了就好了呀？比如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"What is the length of the array? "</span>;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"><span class="keyword">char</span> b[n];</span><br></pre></td></tr></table></figure>
 
-<p>实际上，最后初始化数组的语句就会给你报出错误，<img src="//yoursite.com/2019/06/28/C艹-回顾第一部分/1561983072125.png" alt="1561983072125"></p>
+<p>实际上，最后初始化数组的语句就会给你报出错误，<img src="/2019/06/28/C艹-回顾第一部分/1561983072125.png" alt="1561983072125"></p>
 <h5 id="3、异常处理"><a href="#3、异常处理" class="headerlink" title="3、异常处理"></a>3、异常处理</h5><p>上面创建一维浮点数组的过程中，可能会出现计算机没有足够内存可以分配的情况，在这样的情况下，new不会分配，且会抛出一个类型为<strong>bad_alloc</strong>的异常。可以捕获该异常：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> *x;</span><br><span class="line"><span class="keyword">try</span>&#123;x = <span class="keyword">new</span> <span class="keyword">float</span>[n];&#125;</span><br><span class="line"><span class="keyword">catch</span>(bad_alloc e)&#123;</span><br><span class="line">	<span class="built_in">cerr</span>&lt;&lt;<span class="string">"Out of Memory"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -304,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/28/C艹-回顾第一部分/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/06/28/C艹-回顾第一部分/" alt="微信分享二维码">
     </div>
 </div>
 

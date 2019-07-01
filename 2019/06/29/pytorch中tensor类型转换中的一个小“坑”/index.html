@@ -5,23 +5,21 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href>
   <title>pytorch中tensor类型转换中的一个小“坑” | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：$$Dice=\frac{2|A \cap B|}{|A|+|B|}$$对于两幅图像来说，Dice可">
 <meta name="keywords" content="深度学习,卷积神经网络,CNN,计算机视觉,CV,医疗影像处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch中tensor类型转换中的一个小“坑”">
-<meta property="og:url" content="http://yoursite.com/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/index.html">
+<meta property="og:url" content="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
 <meta property="og:description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：$$Dice=\frac{2|A \cap B|}{|A|+|B|}$$对于两幅图像来说，Dice可">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/pytorch%E4%B8%ADtensor%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E2%80%9C%E5%9D%91%E2%80%9D%5C1561984026388.png">
-<meta property="og:updated_time" content="2019-07-01T12:27:28.854Z">
+<meta property="og:updated_time" content="2019-07-01T13:22:45.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytorch中tensor类型转换中的一个小“坑”">
 <meta name="twitter:description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：$$Dice=\frac{2|A \cap B|}{|A|+|B|}$$对于两幅图像来说，Dice可">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/pytorch%E4%B8%ADtensor%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E2%80%9C%E5%9D%91%E2%80%9D%5C1561984026388.png">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -49,11 +47,11 @@
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<a href="/" class="profilepic">
+		<a href="/blog/" class="profilepic">
 			<img src="/assets/blogImg/touxiang1.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Alex-Qin</a></h1>
+		  <h1 class="header-author"><a href="/blog/">Alex-Qin</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">研一小菜鸡</p>
@@ -186,7 +184,6 @@
 
 <hr>
 <h5 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h5><p>pytorch在进行数据类型转换时，是遵循python本身的数据类型转换规则的，但这是建立在运算符两边的变量类型是<strong>“同一等级”</strong>的基础上，如果表达式中存在不是torch.tensor类型的变量，会先根据已有tensor变量的类型强制转换该变量。</p>
-<p><img src="//yoursite.com/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/pytorch%E4%B8%ADtensor%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E2%80%9C%E5%9D%91%E2%80%9D%5C1561984026388.png" alt="1561984026388"></p>
 
       
 
@@ -245,7 +242,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/" alt="微信分享二维码">
     </div>
 </div>
 
