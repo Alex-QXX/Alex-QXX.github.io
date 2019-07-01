@@ -185,7 +185,7 @@
 
 <hr>
 <h5 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h5><p>pytorch在进行数据类型转换时，是遵循python本身的数据类型转换规则的，但这是建立在运算符两边的变量类型是<strong>“同一等级”</strong>的基础上，如果表达式中存在不是torch.tensor类型的变量，会先根据已有tensor变量的类型强制转换该变量。</p>
-<p><img src="pytorch%E4%B8%ADtensor%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E2%80%9C%E5%9D%91%E2%80%9D%5C1561984026388.png" alt="1561984026388"></p>
+<p><img src="//yoursite.com/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/pytorch%E4%B8%ADtensor%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E2%80%9C%E5%9D%91%E2%80%9D%5C1561984026388.png" alt="1561984026388"></p>
 
       
 
@@ -321,7 +321,7 @@
 <p>看到这里或许有疑问：既然在编译的时候不知道数组的大小，那么为什么不能够使用<code>float x[n];</code>来创建数组呢？这里的n只要我在程序中定义了就好了呀？比如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"What is the length of the array? "</span>;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"><span class="keyword">char</span> b[n];</span><br></pre></td></tr></table></figure>
 
-<p>实际上，最后初始化数组的语句就会给你报出错误，<img src="C%E8%89%B9-%E5%9B%9E%E9%A1%BE%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%5C1561983072125.png" alt="1561983072125"></p>
+<p>实际上，最后初始化数组的语句就会给你报出错误，<img src="//yoursite.com/2019/06/28/C艹-回顾第一部分/1561983072125.png" alt="1561983072125"></p>
 <h5 id="3、异常处理"><a href="#3、异常处理" class="headerlink" title="3、异常处理"></a>3、异常处理</h5><p>上面创建一维浮点数组的过程中，可能会出现计算机没有足够内存可以分配的情况，在这样的情况下，new不会分配，且会抛出一个类型为<strong>bad_alloc</strong>的异常。可以捕获该异常：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> *x;</span><br><span class="line"><span class="keyword">try</span>&#123;x = <span class="keyword">new</span> <span class="keyword">float</span>[n];&#125;</span><br><span class="line"><span class="keyword">catch</span>(bad_alloc e)&#123;</span><br><span class="line">	<span class="built_in">cerr</span>&lt;&lt;<span class="string">"Out of Memory"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
