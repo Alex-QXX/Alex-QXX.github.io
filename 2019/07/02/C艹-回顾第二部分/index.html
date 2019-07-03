@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href>
-  <title>Archives: 2019 | Alex-Qin的博客</title>
+  <title>C++回顾：第二部分 | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+  <meta name="description" content="四、自有数据类型C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用类结构。 1、类(class)假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：$2.35表示2美元、35美分、符号为+。 用无符号长整型变量dolle">
 <meta name="keywords" content="深度学习,卷积神经网络,CNN,计算机视觉,CV,医疗影像处理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alex-Qin的博客">
-<meta property="og:url" content="/archives/2019/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++回顾：第二部分">
+<meta property="og:url" content="/2019/07/02/C艹-回顾第二部分/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
-<meta property="og:description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+<meta property="og:description" content="四、自有数据类型C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用类结构。 1、类(class)假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：$2.35表示2美元、35美分、符号为+。 用无符号长整型变量dolle">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-07-03T02:57:26.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alex-Qin的博客">
-<meta name="twitter:description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+<meta name="twitter:title" content="C++回顾：第二部分">
+<meta name="twitter:description" content="四、自有数据类型C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用类结构。 1、类(class)假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：$2.35表示2美元、35美分、符号为+。 用无符号长整型变量dolle">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -138,130 +139,142 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-C艹-回顾第二部分" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      C++回顾：第二部分
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/C艹-回顾第二部分/" class="archive-article-date">
+
+        
+        <a href="/2019/07/02/C艹-回顾第二部分/" class="archive-article-date">
   	<time datetime="2019-07-02T08:14:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/02/C艹-回顾第二部分/">C++回顾：第二部分</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="四、自有数据类型"><a href="#四、自有数据类型" class="headerlink" title="四、自有数据类型"></a>四、自有数据类型</h2><p>C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用<strong>类</strong>结构。</p>
+<h5 id="1、类-class"><a href="#1、类-class" class="headerlink" title="1、类(class)"></a>1、类(class)</h5><p>假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：$2.35表示2美元、35美分、符号为+。</p>
+<p>用无符号长整型变量dollers、无符号整型变量cents、signType类型变量sign来描述货币对象，signType类型的定义为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> signType&#123;plus, minus&#125;;</span><br></pre></td></tr></table></figure>
+<p>这是一种<strong>枚举数据类型</strong>，上面的语句就创建了一个名为signType的枚举数据类型，默认情况下，第一个枚举量为0，下一个为1，等等等等。enum 语句实际上并没有创建任何变量，只是定义数据类型。当以后创建这个数据类型的变量时，它们看起来就是整数，并且这些整数的值被限制在与枚举集合中的符号名称相关联的整数上。</p>
+<p>如果不想使用默认的赋值方式，可以这样：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Department &#123; factory = <span class="number">1</span>, sales = <span class="number">2</span>, warehouse = <span class="number">4</span> &#125;;</span><br></pre></td></tr></table></figure>
+<p>请记住，如果为枚举符号赋值，则它们<strong>必须是整数</strong>。虽然没有要求按升序排列赋给的整数值，但一般默认是这样。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/07/02/C艹-回顾第二部分/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/" class="archive-article-date">
-  	<time datetime="2019-06-29T07:48:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pytorch中tensor类型转换中的一个小“坑”</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/">pytorch中tensor类型转换中的一个小“坑”</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/28/C艹-回顾第一部分/" class="archive-article-date">
-  	<time datetime="2019-06-28T04:31:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/28/C艹-回顾第一部分/">C++回顾：第一部分</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/26/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-26T05:39:39.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/26/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -284,8 +297,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
