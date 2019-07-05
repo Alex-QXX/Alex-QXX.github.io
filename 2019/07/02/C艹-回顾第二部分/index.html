@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Alex-Qin的博客">
 <meta property="og:description" content="四、自有数据类型C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用类结构。 1、类(class)假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：\$2.35表示2美元、35美分、符号为+。 用无符号长整型变量doll">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-07-04T07:06:45.741Z">
+<meta property="og:updated_time" content="2019-07-05T11:58:04.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++回顾：第二部分">
 <meta name="twitter:description" content="四、自有数据类型C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用类结构。 1、类(class)假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：\$2.35表示2美元、35美分、符号为+。 用无符号长整型变量doll">
@@ -235,7 +235,25 @@
 <p>是错误的，我们需要在output成员函数中完成<code>out&lt;&lt; x.amount;</code>的操作：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> currency_opt::output(<span class="built_in">std</span>::ostream &amp;out) <span class="keyword">const</span> &#123;</span><br><span class="line">	<span class="keyword">long</span> theAmount = amount;</span><br><span class="line">	<span class="keyword">if</span> (theAmount &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		out &lt;&lt; <span class="string">'-'</span>;</span><br><span class="line">		theAmount = -theAmount;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">long</span> dollars = theAmount / <span class="number">100</span>;</span><br><span class="line">	out &lt;&lt; <span class="string">'$'</span> &lt;&lt; dollars &lt;&lt; <span class="string">'.'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> cents = theAmount - dollars * <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">if</span> (cents &lt; <span class="number">10</span>) out &lt;&lt; <span class="string">'0'</span>;</span><br><span class="line">	out &lt;&lt; cents;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="2、友元和保护性类成员"><a href="#2、友元和保护性类成员" class="headerlink" title="2、友元和保护性类成员"></a>2、友元和保护性类成员</h5>
+<h5 id="2、友元和保护性类成员"><a href="#2、友元和保护性类成员" class="headerlink" title="2、友元和保护性类成员"></a>2、友元和保护性类成员</h5><p>前面提到，&lt;&lt;无法重载为类的成员函数，但是直接重载为普通的函数又存在安全性的问题，为了方便，可以将<code>ostream&amp; operator&lt;&lt;</code>声明为类的友元，那么就可以直接访问类的公有和私有成员，就不用另外定义成员函数output了。声明友元函数的写法为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">currency</span>&#123;</span></span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp;, <span class="keyword">const</span> currency&amp;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>C++还提供了第三类成员：protected，protected成员类似于私有成员，但是派生类可以访问基类的protected成员。</p>
+<h5 id="3、防止重复编译"><a href="#3、防止重复编译" class="headerlink" title="3、防止重复编译"></a>3、防止重复编译</h5><p>为了防止一个头文件被include多次，C++中有两种宏实现方式：一种是#ifndef方式；另一种是#pragma once方式。以currency类来说，头文件currency.h包含了currency类的声明和实现，第一种方式的写法是：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> currency_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> currency_</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>包含在这组语句中的代码只会编译一次。第二种方式的写法相比简单一些，只需在头文件第一行加上：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br></pre></td></tr></table></figure>
+
+<p>两者的区别在于：</p>
+<p>#ifndef的方式受C/C++语言标准支持。它不仅可以保证同一个文件不会被包含多次，也能保证内容完全相同的两个文件（或者代码片段）不会被不小心同时包含。当然，缺点就是如果不同头文件中的宏名不小心“撞车”，可能就会导致你看到头文件明明存在，但编译器却硬说找不到声明的状况。由于编译器每次都需要打开头文件才能判定是否有重复定义，因此在编译大型项目时，ifndef会使得编译时间相对较长，因此一些编译器逐渐开始支持#pragma once的方式。</p>
+<p>#pragma once 一般由编译器提供保证：同一个文件不会被包含多次。注意这里所说的“同一个文件”是指物理上的一个文件，而不是指内容相同的两个文件。你无法对一个头文件中的一段代码作pragma once声明，而只能针对文件。其好处是，你不必再担心宏名冲突了，当然也就不会出现宏名冲突引发的奇怪问题。大型项目的编译速度也因此提高了一些。对应的缺点就是如果某个头文件有多份拷贝，本方法不能保证他们不被重复包含。当然，相比宏名冲突引发的“找不到声明”的问题，这种重复包含很容易被发现并修正。另外，这种方式不支持跨平台。</p>
+<h5 id="4、异常类"><a href="#4、异常类" class="headerlink" title="4、异常类"></a>4、异常类</h5><p>当一个函数的实参无意义时，我们可以定义一个异常类来表示。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">illegalParameterValue</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		illegalParameterValue():message(<span class="string">"Illegal parameter value"</span>)&#123;&#125;</span><br><span class="line">		illegalParameterValue(<span class="keyword">char</span>* theMessage)&#123;</span><br><span class="line">			message = theMessage;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">outputMessage</span><span class="params">()</span></span>&#123;<span class="built_in">cout</span> &lt;&lt; message &lt;&lt; <span class="built_in">endl</span>;&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="built_in">string</span> message;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>illegalParameterValue():message(&quot;Illegal parameter value&quot;){}</code>这种写法也是私有成员初始化。抛出异常类对象：<code>throw illegalParameterValue(&quot;All parameters should be &gt; 0&quot;);</code>，捕捉异常：<code>catch(illegalParameterValue e){}</code>。</p>
+
       
 
       
