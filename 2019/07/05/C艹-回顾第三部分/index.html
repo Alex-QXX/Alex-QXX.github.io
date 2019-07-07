@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href>
-  <title>Archives | Alex-Qin的博客</title>
+  <title>C++回顾：第三部分 | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+  <meta name="description" content="五、递归函数递归函数需要包含基础部分和递归部分。基础部分是一个停止条件，防止函数无限递归调用。以计算n的阶乘为例： 1234int factorial(int n) &amp;#123;	if (n &amp;lt;= 1) return 1;	else return n * factorial(n - 1);&amp;#125;  上面的函数的基础部分为n&amp;lt;=1，以计算factorial(3)来看，先进入else">
 <meta name="keywords" content="深度学习,卷积神经网络,CNN,计算机视觉,CV,医疗影像处理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alex-Qin的博客">
-<meta property="og:url" content="/archives/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++回顾：第三部分">
+<meta property="og:url" content="/2019/07/05/C艹-回顾第三部分/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
-<meta property="og:description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+<meta property="og:description" content="五、递归函数递归函数需要包含基础部分和递归部分。基础部分是一个停止条件，防止函数无限递归调用。以计算n的阶乘为例： 1234int factorial(int n) &amp;#123;	if (n &amp;lt;= 1) return 1;	else return n * factorial(n - 1);&amp;#125;  上面的函数的基础部分为n&amp;lt;=1，以计算factorial(3)来看，先进入else">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-07-07T14:14:08.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alex-Qin的博客">
-<meta name="twitter:description" content="华东理工大学研究生在读，主要研究方向：深度学习与计算机视觉">
+<meta name="twitter:title" content="C++回顾：第三部分">
+<meta name="twitter:description" content="五、递归函数递归函数需要包含基础部分和递归部分。基础部分是一个停止条件，防止函数无限递归调用。以计算n的阶乘为例： 1234int factorial(int n) &amp;#123;	if (n &amp;lt;= 1) return 1;	else return n * factorial(n - 1);&amp;#125;  上面的函数的基础部分为n&amp;lt;=1，以计算factorial(3)来看，先进入else">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -138,157 +139,152 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-C艹-回顾第三部分" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      C++回顾：第三部分
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/05/C艹-回顾第三部分/" class="archive-article-date">
+
+        
+        <a href="/2019/07/05/C艹-回顾第三部分/" class="archive-article-date">
   	<time datetime="2019-07-05T11:59:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/05/C艹-回顾第三部分/">C++回顾：第三部分</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="五、递归函数"><a href="#五、递归函数" class="headerlink" title="五、递归函数"></a>五、递归函数</h2><p>递归函数需要包含<strong>基础部分</strong>和<strong>递归部分</strong>。<strong>基础部分</strong>是一个停止条件，防止函数无限递归调用。以计算n的阶乘为例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>上面的函数的基础部分为n&lt;=1，以计算<code>factorial(3)</code>来看，先进入<code>else</code>语句，<code>factorial(3)</code>被挂起，先去计算<code>factorial(2)</code>，又进入<code>else</code>语句，<code>factorial(2)</code>也被挂起，然后计算<code>factorial(1)</code>，返回值为1，接下来挂起的<code>factorial(2)</code>被重新计算，返回<code>2*1</code>，接下来挂起的<code>factorial(3)</code>被重新计算，返回<code>3*2*1</code>，程序结束。</p>
+<p>稍微提一下，<code>factorial(3)</code>和<code>factorial(2)</code>被挂起的时候，程序的状态（即局部变量、传值形参的值、与引用形参绑定的值、代码的执行位置）会被保留在递归栈中，当<code>factorial(1)</code>计算结束后，程序的状态会恢复(被弹出栈)。</p>
+<p>如果想对一个数组<code>a[0]</code>至<code>a[n-1]</code>的元素求和，且当<code>n=0</code>时返回0。有递归和非递归写法，当然这里默认了n不会超过数组的大小，也可以写个异常进行抛出：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">sum</span>(<span class="title">T</span> <span class="title">a</span>[], <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	T theSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		theSum += a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> theSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">rsum</span>(<span class="title">T</span> <span class="title">a</span>[], <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> a[n - <span class="number">1</span>] + rsum(a, n - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有时候，会有这种需求：从n个不同的元素的所有排列中确定一个最佳的排列。例如a、b、c的排列方式有6种，n个元素有n!种排列方式。</p>
+<p>设$E=\left\{e_{1},  \cdots, e_{n}\right\}$是n个元素的集合，$E_i$表示从其中除去第i个元素以后的集合，$perm(E)$表示集合E的元素所组成的所有排列，$e_i  \cdot perm(E_i)$表示在$perm(E_i)$中的每个排列加上前缀$e_i$之后的排序表。例如：$E=\{\mathrm{a}, \mathrm{b}, \mathrm{c}\}$，$E_{1}=\{\mathrm{b},  \mathrm{c}\}$，$\operatorname{perm}\left(E_{1}\right)=(\mathrm{bc}, \mathrm{cb})$，$e_{1} \cdot p \operatorname{erm}\left(E_{1}\right)=(a b c, a c b)$。当n=1时，是基础部分，n&gt;1的时候$perm(E)$是一个表：$e_1  \cdot perm(E_1)$、$e_2  \cdot perm(E_2)$、……、$e_n  \cdot perm(E_n)$，这相当于用了n个集合$perm(E_i)$来表示集合$perm(E)$，而每个$perm(E_i)$又可以用n-1个集合来表示，所以构成了递归部分。</p>
+<p>根据以上定义来逐个推一遍整个递归的流程：当n=3，$E=\{\mathrm{a}, \mathrm{b}, \mathrm{c}\}$，此时有$\operatorname{perm}(E)=\{a \cdot \operatorname{perm}(\{b, c\}),  b \cdot p \operatorname{erm}(\{a, c\}),  c \cdot p \operatorname{erm}(\{a, b\})\}$</p>
+<p>递归一次有：$\operatorname{perm}(\{\mathrm{b}, \mathrm{c}\})=\{\mathrm{b} . \mathrm{perm}(\{\mathrm{c}\}), \mathrm{c} . \mathrm{perm}(\{\mathrm{b}\})\}$，$\operatorname{perm}(\{\mathrm{a}, \mathrm{c}\})=\{\mathrm{a} . \mathrm{perm}(\{\mathrm{c}\}), \mathrm{c} . \mathrm{perm}(\{\mathrm{a}\})\}$，$\operatorname{perm}(\{\mathrm{a}, \mathrm{b}\})=\{\mathrm{a} . \mathrm{perm}(\{\mathrm{b}\}), \mathrm{b} . \mathrm{perm}(\{\mathrm{a}\})\}$</p>
+<p>递归第二次，已经到了基础部分，所以有：$perm(\{c\})=c$，$perm(\{b\})=b$，$perm(\{a\})=a$</p>
+<p>所以，返回上一层递归，可以得到$\operatorname{perm}(\{\mathrm{b}, \mathrm{c}\})=\{bc,cb\}$，$\operatorname{perm}(\{\mathrm{a}, \mathrm{c}\})=\{ac,ca\}$，$\operatorname{perm}(\{\mathrm{a}, \mathrm{b}\})=\{ab,ba\}$。</p>
+<p>返回最顶层有：$\operatorname{perm}(E)=\{abc,acb,bac,bca,cab,cba\}$</p>
+<p>代码实现结果如下：</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/07/05/C艹-回顾第三部分/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/C艹-回顾第二部分/" class="archive-article-date">
-  	<time datetime="2019-07-02T08:14:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/02/C艹-回顾第二部分/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++回顾：第二部分</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/02/C艹-回顾第二部分/">C++回顾：第二部分</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/" class="archive-article-date">
-  	<time datetime="2019-06-29T07:48:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/">pytorch中tensor类型转换中的一个小“坑”</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/28/C艹-回顾第一部分/" class="archive-article-date">
-  	<time datetime="2019-06-28T04:31:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/28/C艹-回顾第一部分/">C++回顾：第一部分</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/26/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-26T05:39:39.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -311,8 +307,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
