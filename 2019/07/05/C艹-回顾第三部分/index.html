@@ -17,7 +17,7 @@
 <meta property="og:description" content="五、递归函数递归函数需要包含基础部分和递归部分。基础部分是一个停止条件，防止函数无限递归调用。以计算n的阶乘为例： 1234int factorial(int n) &amp;#123;	if (n &amp;lt;= 1) return 1;	else return n * factorial(n - 1);&amp;#125;  上面的函数的基础部分为n&amp;lt;=1，以计算factorial(3)来看，先进入else">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="/2019/07/05/C艹-回顾第三部分/1563201850180.png">
-<meta property="og:updated_time" content="2019-07-16T12:25:39.330Z">
+<meta property="og:updated_time" content="2019-07-16T13:30:08.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++回顾：第三部分">
 <meta name="twitter:description" content="五、递归函数递归函数需要包含基础部分和递归部分。基础部分是一个停止条件，防止函数无限递归调用。以计算n的阶乘为例： 1234int factorial(int n) &amp;#123;	if (n &amp;lt;= 1) return 1;	else return n * factorial(n - 1);&amp;#125;  上面的函数的基础部分为n&amp;lt;=1，以计算factorial(3)来看，先进入else">
@@ -189,10 +189,10 @@
 <p>返回到<code>permutations(list,0,2)</code>挂起的地方，调用<code>swap(list[0],list[0]);</code>进入下一次循环，执行<code>swap(list[0],list[1]);</code>此时<code>list=[&#39;b&#39;,&#39;a&#39;,&#39;c&#39;]</code>，接下来继续调用<code>permutations(list,1,2)</code>，会依次输出<code>b,a,c</code>和<code>b,c,a</code>。进入下次循环，执行<code>swap(list[0],list[2]);</code>此时<code>list=[&#39;c&#39;,&#39;b&#39;,&#39;a&#39;]</code>，接下来继续调用<code>permutations(list,1,2)</code>，会依次输出<code>c,b,a</code>和<code>c,a,b</code>。<code>permutations(list,0,2)</code>运行完毕。整个处理过程可以看成：</p>
 <p><img src="/2019/07/05/C艹-回顾第三部分/1563201850180.png" alt="1563201850180"></p>
 <p>整个程序的经历的过程为1-2-3-2-4-2-1-5-6-5-7-5-1-8-9-8-10-8-1。整体的思想就是利用递归不断的交换元素的位置，从而得到所有元素的排列组合。</p>
-<h2 id="六、标准模板库-STL"><a href="#六、标准模板库-STL" class="headerlink" title="六、标准模板库(STL)"></a>六、标准模板库(STL)</h2><p>STL是一个容器、适配器、迭代器、函数对象（仿函数）和算法的集合。STL中的<code>accumulate</code>可以对顺序表元素进行顺序累积求和：<code>accumulate(start, end, initialValue)</code>，其中<code>start</code>指向首元素，<code>end</code>指向尾元素的下一个位置，所以求和的范围是<code>[start,end)</code>，<code>initialValue</code>是初值。前面使用递归函数实现对数组的求和，现在使用STL的<code>accumulate</code>也可以完成一样的功能：</p>
+<h2 id="六、标准模板库-STL"><a href="#六、标准模板库-STL" class="headerlink" title="六、标准模板库(STL)"></a>六、标准模板库(STL)</h2><h5 id="1、常用函数对象"><a href="#1、常用函数对象" class="headerlink" title="1、常用函数对象"></a>1、常用函数对象</h5><p>STL是一个容器、适配器、迭代器、函数对象（仿函数）和算法的集合。STL中的<code>accumulate</code>可以对顺序表元素进行顺序累积求和：<code>accumulate(start, end, initialValue)</code>，其中<code>start</code>指向首元素，<code>end</code>指向尾元素的下一个位置，所以求和的范围是<code>[start,end)</code>，<code>initialValue</code>是初值。前面使用递归函数实现对数组的求和，现在使用STL的<code>accumulate</code>也可以完成一样的功能：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">tsum</span>(<span class="title">T</span> <span class="title">a</span>[], <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	T theSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> accumulate(a, a + n, theSum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><code>accumulate</code>通用的形式为：<code>accumulate(start, end, initialValue, operator)</code>，<code>operator</code>是一个函数，它规定了在累积过程中的操作，比如利用STL中的<code>multiplies</code>函数能够计算数组元素的乘积：</p>
+<p><code>accumulate</code>通用的形式为：<code>accumulate(start, end, initialValue, operator)</code>，<code>operator</code>是一个函数对象，它规定了在累积过程中的操作，比如利用STL中的<code>multiplies</code>函数能够计算数组元素的乘积：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">product</span>(<span class="title">T</span> <span class="title">a</span>[], <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	T theProduct = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> accumulate(a, a + n, theProduct, multiplies&lt;T&gt;());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>之前在元素排列组合的过程中，也使用了STL的算法：<code>copy</code>，作用是把一个顺序表的元素从一个位置复制到另一个位置：<code>copy(start, end, to)</code>，<code>to</code>给出了第一个元素要复制到的位置。除此之外，还可以使用<code>next_permutation</code>来解决排列问题。<code>next_permutation(start, end)</code>可以对<code>[start, end)</code>范围内的元素按照字典顺序产生下一个更大的排列，当且仅当这个排列存在时，返回<code>true</code>。所以，之前的递归函数可以改写为：</p>
@@ -200,6 +200,27 @@
 
 <p>可以看到<code>next_permutation</code>返回的只是布尔型常量，它是在原顺序表上进行的。</p>
 <p>事实上，上述函数还存在一些问题，它无法输出比初始序列小的排列。更一般的形式为<code>next_permutation(start, end, compare)</code>，<code>compare</code>函数用来判定当前排列是否比下一排列小，不给定时默认为操作符&lt;。</p>
+<h5 id="2、vector类和string类"><a href="#2、vector类和string类" class="headerlink" title="2、vector类和string类"></a>2、vector类和string类</h5><p>C++标准定义了两个类：vector和string，vector用来替代内置的C++数组，内置数组的问题在于，其行为不同于第一类对象（first object），例如，不能使用=来复制，不能记忆它能存储多少项，而且内置数组的<strong>下标运算符</strong>也不会检查下标是否合法。同理string类用于代替C++内置的字符串，内置字符串事实上就是一个字符数组。</p>
+<p>创建一个vector对象可以这么写：<code>vector&lt;int&gt; a(100);</code>这里显式地给出了大小，但是实际上，vector的一个优点就在于其本身的大小是很容易改变的，所以在大多数情况下，vector对象初始化的大小为0，随着需求增长。</p>
+<p>在C++11之前，是不允许在初始化vector的时候不指定大小的，也就是说对于C++内置数组的初始化方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">57</span>, <span class="number">8</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这个语法对vector是不成立的，要么初始大小为0，要么指定大小。C++11调整了该问题，C++11允许：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">57</span>, <span class="number">8</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>但是这种写法中的=违反统一初始化的精神，所以C++11也允许(有些人更加愿意)这么做：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">57</span>, <span class="number">8</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>string类拥有比较两个字符串状态的所有关系云算符和相等运算符。</p>
+<h5 id="3、范围for语句和auto"><a href="#3、范围for语句和auto" class="headerlink" title="3、范围for语句和auto"></a>3、范围for语句和auto</h5><p>我们可以使用一个<code>for</code>循环来遍历一个数组：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.size(); i++)</span><br><span class="line">	sum += a[i];</span><br></pre></td></tr></table></figure>
+
+<p>这种写法并不能清楚表示出这种特色，C++11使用了<strong>范围for语句</strong>，所以在C++11中可以写成：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> x : a)</span><br><span class="line">	sum += x;</span><br></pre></td></tr></table></figure>
+
+<p>C++11还使用保留字auto来让编译器自己推断当前变量的类型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> x : a)</span><br><span class="line">	sum += x;</span><br></pre></td></tr></table></figure>
+
 
       
 
