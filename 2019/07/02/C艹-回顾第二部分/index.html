@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Alex-Qin的博客">
 <meta property="og:description" content="四、自有数据类型C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用类结构。 1、类(class)假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：\$2.35表示2美元、35美分、符号为+。 用无符号长整型变量doll">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-07-17T14:07:57.034Z">
+<meta property="og:updated_time" content="2019-07-17T15:19:56.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++回顾：第二部分">
 <meta name="twitter:description" content="四、自有数据类型C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用类结构。 1、类(class)假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：\$2.35表示2美元、35美分、符号为+。 用无符号长整型变量doll">
@@ -279,6 +279,10 @@
 <h5 id="6、类模板"><a href="#6、类模板" class="headerlink" title="6、类模板"></a>6、类模板</h5><p>类模板在简单情况下类似于函数模板。以下代码实现了一个<code>MemoryCell</code>模板，其中假设<code>Object</code>有一个零参数的构造函数，一个拷贝构造函数和一个拷贝赋值运算符：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Object&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemoryCell</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">    	explicit MemoryCell(const Object &amp; initialValue = Object&#123;&#125;) : storedValue &#123;initialValue&#125; &#123;&#125;</span><br><span class="line">    	<span class="function"><span class="keyword">const</span> Object &amp; <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> storedValue;&#125;</span><br><span class="line">    	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">const</span> Object &amp;x)</span> </span>&#123;storedValue = x;&#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	Object storedValue;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>可以看到，构造函数的默认参数是通过创建一个空参的<code>Object</code>对象实现的。注意，<code>MemoryCell</code>本身不是一个类，它只是一个类模板，<code>MemoryCell&lt;int&gt;</code>或者<code>MemoryCell&lt;string&gt;</code>才是类，比如说：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MemoryCell&lt;<span class="keyword">int</span>&gt;  m1;</span><br><span class="line">MemoryCell&lt;<span class="built_in">string</span>&gt; m2 &#123;<span class="string">"hello"</span>&#125;;</span><br><span class="line">m1.write(<span class="number">21</span>);</span><br><span class="line">m2.write(m2.read()+<span class="string">"world"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>之前提到过，模板类的分离式编译在许多平台上都是不支持的，所以对于模板类的声明与定义都是放在一个头文件中的。</p>
 
       
 
