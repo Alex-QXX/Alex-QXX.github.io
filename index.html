@@ -140,6 +140,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/06/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/06/hello-world/" class="archive-article-date">
+  	<time datetime="2019-08-06T03:23:14.464Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/06/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C艹-案例：设计矩阵类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -161,6 +236,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>矩阵类是体现C++面向对象编程思想的经典案例之一，弄明白了其中的工作流程，就算这个思想的入门了，对之后的诸如应用程序、操作系统之类的大规模编程有很大的帮助。</p>
+<p>下面详细记录一下矩阵类的构造过程，其中某些函数需要用到矩阵的基本理论(比如LU分解，求逆)。</p>
+<p>使用向量的向量就可以来表示矩阵，但是除此之外还需要一些操作符重载。首先考虑先构造一个矩阵类模板，它拥有一个保护成员数据，类型为<code>vector&lt;vector&lt;Object&gt;&gt;</code>，即向量的向量。不可避免的需要设计拷贝构造函数和移动构造函数，同时该模板类应该拥有一些矩阵最基本的性质：返回行数、列数、是否为空、是否为方阵。同时该矩阵类模板也应该具有能够改变大小、末尾添加一行，交换指定两行的功能。最后重载操作符<code>[]</code>来进行数组下标运算。定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Object&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">matrix</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	explicit matrix() : array(0) &#123;&#125;</span><br><span class="line">	matrix(<span class="keyword">int</span> rows, <span class="keyword">int</span> cols) : <span class="built_in">array</span>(rows) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">auto</span> &amp; thisRow : <span class="built_in">array</span>) &#123;</span><br><span class="line">			thisRow.resize(cols);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	matrix(<span class="keyword">const</span> matrix&lt;Object&gt; &amp;m) &#123; *<span class="keyword">this</span> = m; &#125;  </span><br><span class="line">	matrix(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;Object&gt;&gt; &amp;m) : <span class="built_in">array</span>&#123;m&#125; &#123;&#125;</span><br><span class="line">	matrix(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;Object&gt;&gt; &amp;&amp;m) : <span class="built_in">array</span>&#123;<span class="built_in">std</span>::move(m)&#125; &#123;&#125;</span><br><span class="line">	~matrix() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> rows, <span class="keyword">int</span> cols)</span></span>;<span class="comment">//改变当前矩阵大小 注意这个和vector的resize的区别</span></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">push_back</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Object&gt; &amp;v)</span></span>; <span class="comment">//矩阵末尾添加一行</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">swap_row</span><span class="params">(<span class="keyword">int</span> row1, <span class="keyword">int</span> row2)</span></span>; <span class="comment">//交换两行</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">rows</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">array</span>.size(); &#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">cols</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> rows() ? (<span class="built_in">array</span>[<span class="number">0</span>].size()) : <span class="number">0</span>; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> rows() == <span class="number">0</span>; &#125; <span class="comment">//是否为空</span></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">square</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> (!(empty()) &amp;&amp; rows() == cols()); &#125; <span class="comment">//是否为方阵</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Object&gt; &amp; <span class="keyword">operator</span>[](<span class="keyword">int</span> row) <span class="keyword">const</span> &#123; <span class="keyword">return</span> <span class="built_in">array</span>[row]; &#125; <span class="comment">//操作符重载</span></span><br><span class="line">	<span class="built_in">vector</span>&lt;Object&gt;&amp; <span class="keyword">operator</span>[](<span class="keyword">int</span> row) &#123; <span class="keyword">return</span> <span class="built_in">array</span>[row]; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;Object&gt;&gt; <span class="built_in">array</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -766,81 +845,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/06/28/C艹-回顾第一部分/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/26/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-26T05:39:39.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/26/hello-world/">展开全文 >></a>
         </p>
       
 
