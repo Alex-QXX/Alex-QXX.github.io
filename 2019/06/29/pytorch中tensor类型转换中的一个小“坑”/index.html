@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href>
   <title>pytorch中tensor类型转换中的一个小“坑” | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：  Dice=\frac{2|A \cap B|}{|A|+|B|}对于两幅图像来说，Dice可以写">
-<meta name="keywords" content="深度学习,卷积神经网络,CNN,计算机视觉,CV,医疗影像处理">
+  <meta name="description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：$$Dice=\frac{2|A \cap B|}{|A|+|B|}$$对于两幅图像来说，Dice可">
+<meta name="keywords" content="pytorch,深度学习,医学图像处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch中tensor类型转换中的一个小“坑”">
 <meta property="og:url" content="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
-<meta property="og:description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：  Dice=\frac{2|A \cap B|}{|A|+|B|}对于两幅图像来说，Dice可以写">
+<meta property="og:description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：$$Dice=\frac{2|A \cap B|}{|A|+|B|}$$对于两幅图像来说，Dice可">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-07-19T11:39:52.000Z">
+<meta property="og:updated_time" content="2019-08-18T13:27:14.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytorch中tensor类型转换中的一个小“坑”">
-<meta name="twitter:description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：  Dice=\frac{2|A \cap B|}{|A|+|B|}对于两幅图像来说，Dice可以写">
+<meta name="twitter:description" content="本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：$$Dice=\frac{2|A \cap B|}{|A|+|B|}$$对于两幅图像来说，Dice可">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
@@ -82,6 +82,10 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Alex-QXX" title="github"><i class="icon-github"></i></a>
 		        
+					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981307914&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:15216883716@163.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -117,6 +121,10 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Alex-QXX" title="github"><i class="icon-github"></i></a>
 			        
+						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981307914&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:15216883716@163.com" title="mail"><i class="icon-mail"></i></a>
+			        
 				</div>
 			</nav>
 
@@ -144,43 +152,55 @@
     
       <header class="article-header">
         
-  
-    <h1 class="article-title" itemprop="name">
-      pytorch中tensor类型转换中的一个小“坑”
-    </h1>
-  
-
         
-        <a href="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/" class="archive-article-date">
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/06/29/pytorch中tensor类型转换中的一个小“坑”/" class="archive-article-date">
   	<time datetime="2019-06-29T07:48:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
+      <center><p>
+  
+    <h1 class="article-title_code_ant" itemprop="name">
+      pytorch中tensor类型转换中的一个小“坑”
+    </h1>
+  
+</p></center>
+
       
-        <p>本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：</p>
-<script type="math/tex; mode=display">
-Dice=\frac{2|A \cap B|}{|A|+|B|}</script><p>对于两幅图像来说，Dice可以写成：</p>
-<script type="math/tex; mode=display">
-Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i}}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}}</script><p>其中$ p_i $ 和$ g_i$ 表示的是预测图和Ground Truth上的像素点，在二值分割任务中，只有两种取值：0和1。</p>
-<p>从上式中可以看出，当Ground Truth中的像素值全为0（即，没有目标前景区域）时，如果预测的结果也为全0的图像，导致上式的分子分母同为0，但是此时的Dice应该为1，故需要对上式的分子分母加上一个smooth平滑：</p>
-<script type="math/tex; mode=display">
-Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i} + smooth}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}+smooth}</script><p>smooth的值通常设为0.000001，即1e-6，给出我一开始写的计算该指标的python代码：</p>
+        <p>本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：<br>$$<br>Dice=\frac{2|A \cap B|}{|A|+|B|}<br>$$<br>对于两幅图像来说，Dice可以写成：<br>$$<br>Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i}}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}}<br>$$<br>其中$ p_i $ 和$ g_i$ 表示的是预测图和Ground Truth上的像素点，在二值分割任务中，只有两种取值：0和1。</p>
+<p>从上式中可以看出，当Ground Truth中的像素值全为0（即，没有目标前景区域）时，如果预测的结果也为全0的图像，导致上式的分子分母同为0，但是此时的Dice应该为1，故需要对上式的分子分母加上一个smooth平滑：<br>$$<br>Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i} + smooth}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}+smooth}<br>$$</p>
+<a id="more"></a>
+
+<p>smooth的值通常设为0.000001，即1e-6，给出我一开始写的计算该指标的python代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_DC</span><span class="params">(SR, GT)</span>:</span></span><br><span class="line">    <span class="comment"># DC : Dice Coefficient</span></span><br><span class="line">    <span class="comment"># SR : prediction</span></span><br><span class="line">    SR = SR &gt; <span class="number">0.5</span></span><br><span class="line">    b, c, z, y, x = GT.shape</span><br><span class="line">    SR_ = SR.view(b, <span class="number">-1</span>).type(torch.ByteTensor)</span><br><span class="line">    GT_ = GT.view(b, <span class="number">-1</span>).type(torch.ByteTensor)</span><br><span class="line"></span><br><span class="line">    batchDC = torch.zeros(SR.shape[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(SR.shape[<span class="number">0</span>]):</span><br><span class="line">        Inter = torch.sum((SR_[i] + GT_[i]) == <span class="number">2</span>)</span><br><span class="line">        SR_sum = torch.sum(SR_[i, :])</span><br><span class="line">        GT_sum = torch.sum(GT_[i, :])</span><br><span class="line">        union = SR_sum + GT_sum</span><br><span class="line">        batchDC[i] = float(<span class="number">2</span> * Inter + <span class="number">1e-6</span>) / float(union + <span class="number">1e-6</span>)</span><br><span class="line"></span><br><span class="line">    DC = float(torch.sum(batchDC)) / float(SR.shape[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> DC</span><br></pre></td></tr></table></figure>
+
 <p>看上去是没有任何问题的，但是在网络训练的过程中却出现了<strong>division by zero</strong>错误，也就说</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">batchDC[i] = float(<span class="number">2</span> * Inter + <span class="number">1e-6</span>) / float(union + <span class="number">1e-6</span>)</span><br></pre></td></tr></table></figure>
+
 <p>这句话中<code>float(union + 1e-6)</code>在某次迭代过程中变成了0，但事实上，根据公式，union是SR和GT所有像素值的和，肯定是一个$ \geq0$的值，在加上smooth以后，肯定是一个$&gt;0$的值。</p>
 <p>后来发现是pytorch中torch.tensor类型转换中的问题。可以看下面的测试代码运行结果：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>union = torch.tensor(<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>smooth = <span class="number">1e-6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result = union+ smooth</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result</span><br><span class="line">tensor(<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result.dtype</span><br><span class="line">torch.int64</span><br></pre></td></tr></table></figure>
+
 <p>union的类型是torch.int64，而smooth是float类型的普通变量，直接使用“+”对两个变量进行运算的话，pytoch会将float类型强制转成torch.int64，这就导致union + 1e-6的类型为torch.int64，所以当union为0时，union + 1e-6仍然是0。修改方法是，可以先将union转换成普通float型再进行相加。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">batchDC[i] = (float(<span class="number">2</span> * Inter) + <span class="number">1e-6</span>) / (float(union) + <span class="number">1e-6</span>)</span><br></pre></td></tr></table></figure>
+
 <p>事实上，pytorch在进行数据类型转换时，会先将不是torch.tensor数据类型转换，转换的类型依据表达式中已有的tensor变量的类型决定，本例中就会将smooth强转为与union同一类型的torch.int64，而如果union的类型为torch.float32，smooth也会转成torch.float32，那么结果就是正确的。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>union = torch.tensor(<span class="number">0.0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>smooth = <span class="number">1e-6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result = union+ smooth</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result</span><br><span class="line">tensor(<span class="number">1.0000e-06</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result.dtype</span><br><span class="line">torch.float32</span><br></pre></td></tr></table></figure>
+
 <p>python本身的数据类型转换在进行float和int类型相加时，会将int转成float，所以，如果union是一个普通的int型变量，那么union+smooth则会是一个float型。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>union = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>smooth = <span class="number">1e-6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>union + smooth</span><br><span class="line"><span class="number">1e-06</span></span><br></pre></td></tr></table></figure>
+
 <p>实际上pytorch也是遵循这一规则的，只是这一规则是建立在运算符两边的变量类型是<strong>“同一等级”</strong>的，如果union类型是torch.int64，smooth类型是torch.float32，那么计算的结果也会是torch.float32。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>union = torch.tensor(<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>smooth = torch.tensor(<span class="number">1e-6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result = union+ smooth</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result</span><br><span class="line">tensor(<span class="number">1.0000e-06</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result.dtype</span><br><span class="line">torch.float32</span><br></pre></td></tr></table></figure>
+
 <hr>
 <h5 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h5><p>pytorch在进行数据类型转换时，是遵循python本身的数据类型转换规则的，但这是建立在运算符两边的变量类型是<strong>“同一等级”</strong>的基础上，如果表达式中存在不是torch.tensor类型的变量，会先根据已有tensor变量的类型强制转换该变量。</p>
 
@@ -191,6 +211,25 @@ Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i} + smooth}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">医学图像处理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -312,10 +351,22 @@ Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i} + smooth}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^
     		&copy; 2019 Alex-Qin
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
   </div>
+  
+  		<div style="margin-right: 13%;"> 
+        	<!-- 不蒜子统计 -->
+        	<span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        	</span>
+        	<span class="post-meta-divider">|</span>
+        	<span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        	</span>
+        	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        </div>
+  
 </footer>
     </div>
     <script>
@@ -407,6 +458,46 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">医学图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ADT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vector</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">list</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
