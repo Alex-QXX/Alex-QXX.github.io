@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href>
-  <title>vector和list的实现 | Alex-Qin的博客</title>
+  <title>Tag: GMM | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、vector的实现现在手动实现一个可用的vector类模板，且该vector是第一类类型(first-class type)，不同于C++中的原始数组，vector对象可以被复制，且其所用的内存可以通过它的析构函数自动回收。 为了避免混淆，手动实现的这个类模板命名为Vector，其主要细节如下：  该Vector将保留原始的数组、数组容量以及数组当时存储在Vector中的项数。这个保留是通过一">
-<meta name="keywords" content="C++,数据结构与算法,vector,list">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vector和list的实现">
-<meta property="og:url" content="/2019/08/21/vector和list的实现/index.html">
+  <meta name="description" content="深度学习与图像处理，智能医学影像处理，计算机视觉">
+<meta name="keywords" content="深度学习，图像处理，智能医疗影像处理，计算机视觉">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alex-Qin的博客">
+<meta property="og:url" content="/tags/GMM/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
-<meta property="og:description" content="一、vector的实现现在手动实现一个可用的vector类模板，且该vector是第一类类型(first-class type)，不同于C++中的原始数组，vector对象可以被复制，且其所用的内存可以通过它的析构函数自动回收。 为了避免混淆，手动实现的这个类模板命名为Vector，其主要细节如下：  该Vector将保留原始的数组、数组容量以及数组当时存储在Vector中的项数。这个保留是通过一">
+<meta property="og:description" content="深度学习与图像处理，智能医学影像处理，计算机视觉">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="/2019/08/21/vector和list的实现/1566394918640.png">
-<meta property="og:image" content="/2019/08/21/vector和list的实现/1566484315199.png">
-<meta property="og:image" content="/2019/08/21/vector和list的实现/1566484544935.png">
-<meta property="og:updated_time" content="2019-08-23T09:00:47.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vector和list的实现">
-<meta name="twitter:description" content="一、vector的实现现在手动实现一个可用的vector类模板，且该vector是第一类类型(first-class type)，不同于C++中的原始数组，vector对象可以被复制，且其所用的内存可以通过它的析构函数自动回收。 为了避免混淆，手动实现的这个类模板命名为Vector，其主要细节如下：  该Vector将保留原始的数组、数组容量以及数组当时存储在Vector中的项数。这个保留是通过一">
-<meta name="twitter:image" content="/2019/08/21/vector和list的实现/1566394918640.png">
+<meta name="twitter:title" content="Alex-Qin的博客">
+<meta name="twitter:description" content="深度学习与图像处理，智能医学影像处理，计算机视觉">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -151,218 +146,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vector和list的实现" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2019/08/21/vector和list的实现/" class="archive-article-date">
-  	<time datetime="2019-08-21T08:27:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <center><p>
+            
   
-    <h1 class="article-title_code_ant" itemprop="name">
-      vector和list的实现
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/" class="archive-article-date">
+  	<time datetime="2019-08-23T09:20:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/">论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation</a>
     </h1>
   
-</p></center>
 
-      
-        <h2 id="一、vector的实现"><a href="#一、vector的实现" class="headerlink" title="一、vector的实现"></a>一、vector的实现</h2><p>现在手动实现一个可用的<code>vector</code>类模板，且该<code>vector</code>是<strong>第一类类型(first-class type)</strong>，不同于C++中的<strong>原始数组</strong>，<code>vector</code>对象可以被复制，且其所用的内存可以通过它的析构函数自动回收。</p>
-<p>为了避免混淆，手动实现的这个类模板命名为<code>Vector</code>，其主要细节如下：</p>
-<ol>
-<li>该<code>Vector</code>将保留原始的数组、数组容量以及数组当时存储在<code>Vector</code>中的项数。这个保留是通过一个指向所分配的内存块的指针变量来实现的。</li>
-<li>该<code>Vector</code>将实现五大函数以提供拷贝构造函数、<code>operator=</code>的深层拷贝功能，并提供一个析构函数来回收原始数组，此外还将实现移动功能。</li>
-<li><code>Vector</code>将提供改变<code>Vector</code>大小的<code>resize</code>函数以及<code>reserve</code>，后者改变的是<code>Vector</code>的容量，这个容量通过为原始数组获取新的内存块，将旧内存块的内容复制到新内存块中并回收旧内存块而得以更新。</li>
-<li><code>Vector</code>将提供<code>operator[]</code>的实现。</li>
-<li><code>Vector</code>还将提供诸如<code>size</code>、<code>empty</code>、<code>clear</code>、<code>back</code>、<code>pop_back</code>和<code>push_back</code>等基本功能。</li>
-<li>对内嵌类型<code>iterator</code>和<code>const_iterator</code>提供支持，并提供相关联的<code>begin</code>和<code>end</code>方法。</li>
-</ol>
-<a id="more"></a>
-<p>具体实现代码如下，与STL中的实现一样，这里实现的<code>Vector</code>也只有有限的错误检测。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> C_WORKSPACE_VECTOR_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> C_WORKSPACE_VECTOR_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Object&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 初始化构造函数</span></span><br><span class="line">    explicit Vector(int initSize = 0) : theSize&#123;initSize&#125;, theCapacity&#123;initSize + SPARE_CAPACITY&#125; &#123;</span><br><span class="line">        objects = <span class="keyword">new</span> Object[theCapacity];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 拷贝构造函数</span></span><br><span class="line">    Vector(<span class="keyword">const</span> Vector &amp;rhs) : theSize&#123;rhs.theSize&#125;, theCapacity&#123;rhs.theCapacity&#125;, objects&#123;<span class="literal">nullptr</span>&#125; &#123;</span><br><span class="line">        objects = <span class="keyword">new</span> Object[theCapacity];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; theSize; ++k)</span><br><span class="line">            objects[k] = rhs.objects[k];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 拷贝赋值：操作符重载</span></span><br><span class="line">    Vector &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> Vector &amp;rhs) &#123;</span><br><span class="line">        Vector copy = rhs;</span><br><span class="line">        <span class="built_in">std</span>::swap(*<span class="keyword">this</span>, copy);</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~Vector() &#123; <span class="keyword">delete</span>[] objects; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移动构造函数</span></span><br><span class="line">    Vector(Vector &amp;&amp;rhs) : theSize&#123;rhs.theSize&#125;, theCapacity&#123;rhs.theCapacity&#125;, objects&#123;rhs.objects&#125; &#123;</span><br><span class="line">        rhs.objects = <span class="literal">nullptr</span>;</span><br><span class="line">        rhs.theSize = <span class="number">0</span>;</span><br><span class="line">        rhs.theCapacity = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移动赋值</span></span><br><span class="line">    Vector &amp;<span class="keyword">operator</span>=(Vector &amp;&amp;rhs) &#123;</span><br><span class="line">        <span class="built_in">std</span>::swap(theSize, rhs.theSize);</span><br><span class="line">        <span class="built_in">std</span>::swap(theCapacity, rhs.theCapacity);</span><br><span class="line">        <span class="built_in">std</span>::swap(objects, rhs.objects);</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newSize)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (newSize &gt; theCapacity)</span><br><span class="line">            reserve(newSize * <span class="number">2</span>);</span><br><span class="line">        theSize = newSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reserve</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (newCapacity &lt; theSize)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">auto</span> *newArray = <span class="keyword">new</span> Object[newCapacity];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; theSize; ++k)</span><br><span class="line">            newArray[k] = <span class="built_in">std</span>::move(objects[k]);</span><br><span class="line">        theCapacity = newCapacity;</span><br><span class="line">        <span class="built_in">std</span>::swap(objects, newArray);</span><br><span class="line">        <span class="keyword">delete</span>[] newArray;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Object &amp;<span class="keyword">operator</span>[](<span class="keyword">int</span> index) &#123; <span class="keyword">return</span> objects[index]; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> Object &amp;<span class="keyword">operator</span>[](<span class="keyword">int</span> index) <span class="keyword">const</span> &#123; <span class="keyword">return</span> objects[index]; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> size() == <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> theSize; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">capacity</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> theCapacity; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_back</span><span class="params">(<span class="keyword">const</span> Object &amp;x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (theSize == theCapacity)</span><br><span class="line">            reserve(<span class="number">2</span> * theCapacity + <span class="number">1</span>);</span><br><span class="line">        objects[theSize++] = x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_back</span><span class="params">(Object &amp;&amp;x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (theSize == theCapacity)</span><br><span class="line">            reserve(<span class="number">2</span> * theCapacity + <span class="number">1</span>);</span><br><span class="line">        objects[theSize++] = <span class="built_in">std</span>::move(x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop_back</span><span class="params">()</span> </span>&#123; --theSize; &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">const</span> Object &amp;<span class="title">back</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> objects[theSize - <span class="number">1</span>]; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">typedef</span> Object *iterator;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">const</span> Object *const_iterator;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">begin</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &amp;objects[<span class="number">0</span>]; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">const_iterator <span class="title">begin</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> &amp;objects[<span class="number">0</span>]; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">end</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &amp;objects[size()]; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">const_iterator <span class="title">end</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> &amp;objects[size()]; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> SPARE_CAPACITY = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> theSize;</span><br><span class="line">    <span class="keyword">int</span> theCapacity;</span><br><span class="line">    Object *objects;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">//C_WORKSPACE_VECTOR_H</span></span></span><br></pre></td></tr></table></figure>
-<p>这里提供了一个构造函数可以让用户指定初始大小，默认为0，然后用比大小稍微大些的容量去初始化数据成员，这么做就可以使得有些<code>push_back</code>不用改变容量就可以执行。<code>resize</code>函数直接设置<code>theSize</code>数据成员，但是却需要先判断是否需要扩展容量，扩展容量的代价是高昂的，所以如果需要，就直接扩大一倍以防止再次需要扩大容量。</p>
-<p>值得一提的是，迭代器和普通指针不是同一个东西，迭代器不是指针，是类模板，表现的像指针，他只是模拟了指针的一些功能，通过重载了指针的一些操作符，-&gt;,*,++ —等封装了指针，是一个“可遍历STL（ Standard Template Library）容器内全部或部分元素”的对象， 本质是封装了原生指针，是指针概念的一种提升（lift），提供了比指针更高级的行为，相当于一种智能指针，他可以根据不同类型的数据结构来实现不同的++，—等操作。接下来实现<code>list</code>的过程中可以看出使用内嵌类型要更加普遍。</p>
-<h2 id="2、list的实现"><a href="#2、list的实现" class="headerlink" title="2、list的实现"></a>2、list的实现</h2><p>STL中的<code>list</code>类是作为双向链表的实现，且需要保留指向表两端的两个指针。在设计的过程中，需要提供如下4个类型：</p>
-<ol>
-<li><code>List</code>类本身，它包含连接到表两端的链、表的大小以及一些方法。</li>
-<li><code>Node</code>类，它是一个私有的内嵌类。一个<code>Node</code>对象应该包含数据和指向前后两个<code>Node</code>对象的两个指针，以及一些适当的构造函数。</li>
-<li><code>const_iterator</code>类，它抽象了位置的概念，且应该是一个共有的内嵌类。该<code>const_iterator</code>存储一个指向当前节点的指针，并提供基本迭代器操作的实现。</li>
-<li><code>iterator</code>类，需要有着与<code>const_iterator</code>相同的功能，但是<code>operator*</code>返回的所指项的引用，而不是该项的常量引用。</li>
-</ol>
-<p>因为迭代器类存储一个指向当前节点的指针，并且终端标记是一个合法的位置，所以，在表的终端创建一个表示终端标记的附加节点是很有必要的。此外，也可以在表的前端创建一个附加节点，逻辑上表示开始标志。这两个附加的节点称为<strong>标记节点</strong>，有时候也会叫做<strong>头结点</strong>和<strong>尾结点</strong>。如下所示：</p>
-<p><img src="/2019/08/21/vector和list的实现/1566394918640.png" alt="1566394918640"></p>
-<p>因为<code>List</code>实现的代码有点长，所以这里会拆开来进行分析。首先需要定义之前所说的需要的几个类型。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Object&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">List</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">        Object data;</span><br><span class="line">        Node *prev;</span><br><span class="line">        Node *next;</span><br><span class="line"></span><br><span class="line">        Node(<span class="keyword">const</span> Object &amp;d = Object&#123;&#125;, Node *p = <span class="literal">nullptr</span>, Node *n = <span class="literal">nullptr</span>) : data&#123;d&#125;, prev&#123;p&#125;, next&#123;n&#125; &#123;&#125;</span><br><span class="line"></span><br><span class="line">        Node(Object &amp;&amp;d, Node *p = <span class="literal">nullptr</span>, Node *n = <span class="literal">nullptr</span>) : data&#123;<span class="built_in">std</span>::move(d)&#125;, prev&#123;p&#125;, next&#123;n&#125; &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">const_iterator</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        const_iterator() : current&#123;<span class="literal">nullptr</span>&#125; &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> Object &amp;<span class="keyword">operator</span>*() <span class="keyword">const</span> &#123; <span class="keyword">return</span> retrieve(); &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 前缀++</span></span><br><span class="line">        const_iterator &amp;<span class="keyword">operator</span>++() &#123;</span><br><span class="line">            current = current-&gt;next;</span><br><span class="line">            <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 后缀++</span></span><br><span class="line">        const_iterator <span class="keyword">operator</span>++(<span class="keyword">int</span>) &#123;</span><br><span class="line">            const_iterator old = *<span class="keyword">this</span>;</span><br><span class="line">            ++(*<span class="keyword">this</span>);</span><br><span class="line">            <span class="keyword">return</span> old;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">bool</span> <span class="keyword">operator</span>==(<span class="keyword">const</span> const_iterator &amp;rhs) <span class="keyword">const</span> &#123; <span class="keyword">return</span> current == rhs.current; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">bool</span> <span class="keyword">operator</span>!=(<span class="keyword">const</span> const_iterator &amp;rhs) <span class="keyword">const</span> &#123; <span class="keyword">return</span> !(*<span class="keyword">this</span> == rhs); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        Node *current;</span><br><span class="line"></span><br><span class="line">        <span class="function">Object &amp;<span class="title">retrieve</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> current-&gt;data; &#125;</span><br><span class="line"></span><br><span class="line">        const_iterator(Node *p) : current&#123;p&#125; &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">List</span>&lt;Object&gt;;</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">iterator</span> :</span> <span class="keyword">public</span> const_iterator &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        iterator() = <span class="keyword">default</span>;</span><br><span class="line"></span><br><span class="line">        Object &amp;<span class="keyword">operator</span>*() &#123; <span class="keyword">return</span> const_iterator::retrieve(); &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> Object &amp;<span class="keyword">operator</span>*() <span class="keyword">const</span> &#123; <span class="keyword">return</span> const_iterator::<span class="keyword">operator</span>*(); &#125;</span><br><span class="line"></span><br><span class="line">        iterator &amp;<span class="keyword">operator</span>++() &#123;</span><br><span class="line">            <span class="keyword">this</span>-&gt;current = <span class="keyword">this</span>-&gt;current-&gt;next;</span><br><span class="line">            <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        iterator &amp;<span class="keyword">operator</span>++(<span class="keyword">int</span>) &#123;</span><br><span class="line">            iterator old = *<span class="keyword">this</span>;</span><br><span class="line">            ++(*<span class="keyword">this</span>);</span><br><span class="line">            <span class="keyword">return</span> old;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        iterator(Node *p) : const_iterator&#123;p&#125; &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">List</span>&lt;Object&gt;;</span></span><br><span class="line">    &#125;;</span><br><span class="line"><span class="comment">//....未完待续.....</span></span><br></pre></td></tr></table></figure>
-<p><code>Node</code>类本身是<code>List</code>的私有成员，因为不希望用户可以直接接触到链表的节点，<code>Node</code>类由存储的项、指向前一节点的指针、指向后一节点的指针以及构造函数构成，所有的数据成员都是公有的。</p>
-<p><code>const_iterator</code>存储一个指向当前节点的指针作为它单独的数据成员，且定义为保护成员以便继承类<code>iterator</code>可以访问。可以想到的是，<code>List</code>的成员函数中，至少<code>begin</code>和<code>end</code>函数需要用到<code>const_iterator</code>的构造函数，但是迭代器的构造函数不能是公有的，因为从指针变量显示地构造迭代器是不允许的，这就涉及到之前所说的迭代器和指针的区别了，迭代器只针对容器，如果直接用一个指针去构造，那么迭代器的意义就丧失了，所以<code>const_iterator</code>的构造函数只能定义为保护成员，但是这并未给<code>List</code>访问的权限，所以需要将<code>List</code>指定为友元类。同时，在<code>operator++</code>的重载中，需要实现前缀形式和后缀形式，C++规定，前缀形式的操作符重载指定空参数列表，后缀形式指定匿名的单参数<code>int</code>，但是<code>int</code>从未被使用过，它的出现只是为了区分两种不同的重载形式，可以看出，如果需要选择使用前缀还是后缀形式的情况下，前缀形式往往要比后缀快。</p>
-<p><code>iterator</code>类继承了<code>const_iterator</code>，通常情况下，在子类中可以添加新的数据、方法，还可以覆盖(重新定义)现有的方法，在最一般的情况下，将会出现严重的语法负担(常常导致<code>virtual</code>出现在基类的很多成员函数前)。但是这里并不打算去添加新的数据，也不打算改变现有方法的行为，但是还需要在<code>iterator</code>中实现一些与<code>const_iterator</code>中现存的方法非常相似特征的函数，这样可以避免使用<code>virtual</code>。在<code>iterator</code>中不需要再去重新实现<code>operator==</code>和<code>operator!=</code>，因为它们已经被继承了，且不需要改变，但是需要提供一对新的<code>operator++</code>的实现，因为返回类型改变了，但是这两个实现会因为基类没有添加<code>virtual</code>关键字而隐藏基类的这两个方法。同时还提供了<code>operator*</code>的访问/修改版本的实现，访问版本是在<code>iterator</code>中显示地实现的(虽然具体的实现与<code>const_iterator</code>中是相同的)，但是这么做是必要的，因为否则在子类中新添加的修改版函数会隐藏基类中的访问版函数。</p>
-<p>接下来实现五大函数，但是对于零参构造函数和拷贝构造函数二者都必须配置头节点和尾节点，所以这里需要一个私有的<code>init</code>方法来创建一个空的<code>List</code>。同时析构函数也需要回收头节点和尾节点。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接上节代码</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    List() &#123; init(); &#125;</span><br><span class="line"></span><br><span class="line">    List(<span class="keyword">const</span> List &amp;rhs) &#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;x:rhs)</span><br><span class="line">            push_back(x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~List() &#123;</span><br><span class="line">        clear();</span><br><span class="line">        <span class="keyword">delete</span> head;</span><br><span class="line">        <span class="keyword">delete</span> tail;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    List &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> List &amp;rhs) &#123;</span><br><span class="line">        List copy = rhs;</span><br><span class="line">        <span class="built_in">std</span>::swap(*<span class="keyword">this</span>, copy);</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    List(List &amp;&amp;rhs) : theSize&#123;rhs.theSize&#125;, head&#123;rhs.head&#125;, tail&#123;rhs.tail&#125; &#123;</span><br><span class="line">        rhs.theSize = <span class="number">0</span>;</span><br><span class="line">        rhs.head = <span class="literal">nullptr</span>;</span><br><span class="line">        rhs.tail = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    List &amp;<span class="keyword">operator</span>=(List &amp;&amp;rhs) &#123;</span><br><span class="line">        <span class="built_in">std</span>::swap(theSize, rhs.theSize);</span><br><span class="line">        <span class="built_in">std</span>::swap(head, rhs.head);</span><br><span class="line">        <span class="built_in">std</span>::swap(tail, rhs.tail);</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">begin</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &#123;head-&gt;next&#125;; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">const_iterator <span class="title">begin</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> &#123;head-&gt;next&#125;; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">end</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &#123;tail&#125;; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">const_iterator <span class="title">end</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> &#123;tail&#125;; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> theSize; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> size() == <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (!empty())</span><br><span class="line">            pop_front();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">Object &amp;<span class="title">front</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> *begin(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">const</span> Object &amp;<span class="title">front</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> *begin(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">Object &amp;<span class="title">back</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> *--end(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">const</span> Object &amp;<span class="title">back</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> *--end(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_front</span><span class="params">(<span class="keyword">const</span> Object &amp;x)</span> </span>&#123; insert(begin(), x); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_front</span><span class="params">(Object &amp;&amp;x)</span> </span>&#123; insert(begin(), <span class="built_in">std</span>::move(x)); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_back</span><span class="params">(<span class="keyword">const</span> Object &amp;x)</span> </span>&#123; insert(end(), x); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_back</span><span class="params">(Object &amp;&amp;x)</span> </span>&#123; insert(end(), <span class="built_in">std</span>::move(x)); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop_front</span><span class="params">()</span> </span>&#123; erase(begin()); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop_back</span><span class="params">()</span> </span>&#123; erase(--end()); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">insert</span><span class="params">(iterator itr, <span class="keyword">const</span> Object &amp;x)</span> </span>&#123;</span><br><span class="line">        Node *p = itr.current;</span><br><span class="line">        theSize++;</span><br><span class="line">        <span class="keyword">return</span> &#123;p-&gt;prev = p-&gt;prev-&gt;next = <span class="keyword">new</span> Node&#123;x, p-&gt;prev, p&#125;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">insert</span><span class="params">(iterator itr, Object &amp;&amp;x)</span> </span>&#123;</span><br><span class="line">        Node *p = itr.current;</span><br><span class="line">        theSize++;</span><br><span class="line">        <span class="keyword">return</span> &#123;p-&gt;prev = p-&gt;prev-&gt;next = <span class="keyword">new</span> Node&#123;<span class="built_in">std</span>::move(x), p-&gt;prev, p&#125;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">erase</span><span class="params">(iterator itr)</span> </span>&#123;</span><br><span class="line">        Node *p = itr.current;</span><br><span class="line">        iterator retVal&#123;p-&gt;next&#125;;</span><br><span class="line">        p-&gt;prev-&gt;next = p-&gt;next;</span><br><span class="line">        p-&gt;next-&gt;prev = p-&gt;prev;</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">        theSize--;</span><br><span class="line">        <span class="keyword">return</span> retVal;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">iterator <span class="title">erase</span><span class="params">(iterator from, iterator to)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (iterator itr = from; itr != to;)</span><br><span class="line">            itr = erase(itr);</span><br><span class="line">        <span class="keyword">return</span> to;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> theSize;</span><br><span class="line">    Node *head;</span><br><span class="line">    Node *tail;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        theSize = <span class="number">0</span>;</span><br><span class="line">        head = <span class="keyword">new</span> Node;</span><br><span class="line">        tail = <span class="keyword">new</span> Node;</span><br><span class="line">        head-&gt;next = tail;</span><br><span class="line">        tail-&gt;prev = head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>插入操作是要将节点插入到制定位置的前一个，也就是说，如果需要向表的首端插入，则需要传入<code>begin()</code>返回的位置，如果要向表的尾端插入，则传入<code>end()</code>返回的位置，因为<code>end()</code>返回的位置本身就是”越界”的，或者说，返回的是尾节点(不是尾端)的位置，所以插入到尾节点之前正好满足要求。插入的思路分四步进行：</p>
-<p><img src="/2019/08/21/vector和list的实现/1566484315199.png" alt="1566484315199"></p>
-<p><code>p-&gt;prev = p-&gt;prev-&gt;next = new Node{x, p-&gt;prev, p}</code>这句可以拆分成上述的四个步骤：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Node *newNode = <span class="keyword">new</span> Node&#123;x, p-&gt;prev, p&#125;;</span><br><span class="line">p-&gt;prev-&gt;next = newNode;</span><br><span class="line">p-&gt;prev = newNode;</span><br></pre></td></tr></table></figure>
-<p>删除节点的思路如下：</p>
-<p><img src="/2019/08/21/vector和list的实现/1566484544935.png" alt="1566484544935"></p>
-<p>这里提一下第二个版本的删除函数，它通过循环来调用第一个版本的删除函数，但是并不能在<code>for</code>循环中直接<code>itr++</code>，因为<code>itr</code>的值在循环内部调用完第一个版本的删除函数后就已经过时了，所以必须在循环内部维持<code>itr</code>的正常迭代，这也是为什么<code>erase</code>函数在定义时需要返回一个<code>iterator</code>的原因。因为从前面定义的一些<code>push_back</code>和<code>pop_back</code>等用到<code>insert</code>和<code>erase</code>方法的函数，它们本质上并不需要<code>insert</code>和<code>erase</code>方法返回值，但是<code>insert</code>和<code>erase</code>方法在一些特殊情况下的确需要返回一个迭代器来满足一些其它函数的功能需求。</p>
-<p>基本实现完成了，但是一些可能发生的错误并没有进行检测，例如，传递给<code>erase</code>和<code>insert</code>的迭代器可能是未被初始化的，或者初始化使用的不是我们需要的那个表，或者迭代器已经指向终端标志。对于未初始化或者指向终端标志的迭代器可以很容易检测出来，但是如何判断传递的迭代器指向的是正确的表，则必须要额外存储一个指向<code>List</code>的指针数据成员。基本思路就是如此，需要修改受保护的构造函数，额外增加一个”该<code>List</code>“的参数。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">const</span> List&lt;Object&gt; *theList;</span><br><span class="line">    Node *current;</span><br><span class="line"></span><br><span class="line">    <span class="function">Object &amp;<span class="title">retrieve</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> current-&gt;data; &#125;</span><br><span class="line"></span><br><span class="line">    const_iterator(<span class="keyword">const</span> List&lt;Object&gt; &amp;lst, Node *p) : theList&#123;&amp;lst&#125;, current&#123;p&#125; &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">assertIsValid</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(theList==<span class="literal">nullptr</span> || current== <span class="literal">nullptr</span>||current==theList-&gt;tail)</span><br><span class="line">            <span class="keyword">throw</span> IteratorOutOfBoundException&#123; &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">List</span>&lt;Object&gt;;</span></span><br></pre></td></tr></table></figure>
-<p>修改了构造函数意味着，所有用到了这个构造函数的地方，由原来只需要一个参数改为需要两个参数，例如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">const_iterator <span class="title">begin</span><span class="params">()</span> <span class="keyword">const</span></span>&#123;</span><br><span class="line">        const_iterator itr&#123;*<span class="keyword">this</span>, head&#125;;</span><br><span class="line">        <span class="keyword">return</span> ++itr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>插入函数修改为：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">iterator <span class="title">insert</span><span class="params">(iterator itr, <span class="keyword">const</span> Object &amp;x)</span> </span>&#123;</span><br><span class="line">        itr.assertIsValid();</span><br><span class="line">        <span class="keyword">if</span>(itr.theList!=<span class="keyword">this</span>)</span><br><span class="line">            <span class="keyword">throw</span> IteratorMismatchException&#123;&#125;;</span><br><span class="line"></span><br><span class="line">        Node *p = itr.current;</span><br><span class="line">        theSize++;</span><br><span class="line">        <span class="keyword">return</span> &#123;p-&gt;prev = p-&gt;prev-&gt;next = <span class="keyword">new</span> Node&#123;x, p-&gt;prev, p&#125;&#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像分割</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vector</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">EM</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">list</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GMM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">non-local</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/08/21/vector和list的实现/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/08/18/表ADT/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">表 ADT</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -397,9 +251,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

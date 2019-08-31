@@ -173,12 +173,10 @@
       
         <h2 id="五、递归函数"><a href="#五、递归函数" class="headerlink" title="五、递归函数"></a>五、递归函数</h2><p>递归函数需要包含<strong>基础部分</strong>和<strong>递归部分</strong>。<strong>基础部分</strong>是一个停止条件，防止函数无限递归调用。以计算n的阶乘为例：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>上面的函数的基础部分为n&lt;=1，以计算<code>factorial(3)</code>来看，先进入<code>else</code>语句，<code>factorial(3)</code>被挂起，先去计算<code>factorial(2)</code>，又进入<code>else</code>语句，<code>factorial(2)</code>也被挂起，然后计算<code>factorial(1)</code>，返回值为1，接下来挂起的<code>factorial(2)</code>被重新计算，返回<code>2*1</code>，接下来挂起的<code>factorial(3)</code>被重新计算，返回<code>3*2*1</code>，程序结束。</p>
 <p>稍微提一下，<code>factorial(3)</code>和<code>factorial(2)</code>被挂起的时候，程序的状态（即局部变量、传值形参的值、与引用形参绑定的值、代码的执行位置）会被保留在递归栈中，当<code>factorial(1)</code>计算结束后，程序的状态会恢复(被弹出栈)。</p>
 <p>如果想对一个数组<code>a[0]</code>至<code>a[n-1]</code>的元素求和，且当<code>n=0</code>时返回0。有递归和非递归写法，当然这里默认了n不会超过数组的大小，也可以写个异常进行抛出：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">sum</span>(<span class="title">T</span> <span class="title">a</span>[], <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	T theSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		theSum += a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> theSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">rsum</span>(<span class="title">T</span> <span class="title">a</span>[], <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> a[n - <span class="number">1</span>] + rsum(a, n - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
       
@@ -257,10 +255,9 @@
 
       
         <h2 id="四、自有数据类型"><a href="#四、自有数据类型" class="headerlink" title="四、自有数据类型"></a>四、自有数据类型</h2><p>C++支持如int、float和char这样的类型数据，然而有时候我们想要实现的功能仅仅靠这些数据类型很难完成，此时需要定义自有数据类型，最灵活的方式就是使用<strong>类</strong>结构。</p>
-<h5 id="1、类-class"><a href="#1、类-class" class="headerlink" title="1、类(class)"></a>1、类(class)</h5><p>假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：\$2.35表示2美元、35美分、符号为+。</p>
+<h5 id="1、类-class"><a href="#1、类-class" class="headerlink" title="1、类(class)"></a>1、类(class)</h5><p>假设现在需要处理货币类型currency的对象（或者叫currency类的实例），该对象有三个成员：符号、美元和美分，例如：$2.35表示2美元、35美分、符号为+。</p>
 <p>用无符号长整型变量dollers、无符号整型变量cents、signType类型变量sign来描述货币对象，signType类型的定义为：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> signType&#123;positive, negative&#125;;</span><br></pre></td></tr></table></figure>
-
 <p>这是一种<strong>枚举数据类型</strong>，上面的语句就创建了一个名为signType的枚举数据类型，默认情况下，第一个枚举量为0，下一个为1，等等等等。enum 语句实际上并没有创建任何变量，只是定义数据类型。当以后创建这个数据类型的变量时，它们看起来就是整数，并且这些整数的值被限制在与枚举集合中的符号名称相关联的整数上。</p>
 <p><strong>注意：</strong>书中在使用枚举类型时，使用的<code>enum signType{plus,minus};</code>而不巧的是，std命名空间里的plus和minus重名了，有两种办法：一是，使用<code>signType::plus</code>，二是，不要用<code>using namespace std</code>，用<code>using std::cout</code>等，还有一种最便捷的方法：换名字。</p>
         
@@ -339,8 +336,14 @@
 </p></center>
 
       
-        <p>本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：<br>$$<br>Dice=\frac{2|A \cap B|}{|A|+|B|}<br>$$<br>对于两幅图像来说，Dice可以写成：<br>$$<br>Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i}}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}}<br>$$<br>其中$ p_i $ 和$ g_i$ 表示的是预测图和Ground Truth上的像素点，在二值分割任务中，只有两种取值：0和1。</p>
-<p>从上式中可以看出，当Ground Truth中的像素值全为0（即，没有目标前景区域）时，如果预测的结果也为全0的图像，导致上式的分子分母同为0，但是此时的Dice应该为1，故需要对上式的分子分母加上一个smooth平滑：<br>$$<br>Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i} + smooth}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}+smooth}<br>$$</p>
+        <p>本人研究生课题研究的是基于深度学习的医学图像分割，其中评价分割结果的一个指标为：Dice similarity coefficient（以下简称Dice），是一个介于0到1之间的值，反映了两个集合的相似程度，用在医学影像分割上用于评价网络的分割结果与Ground Truth之间的相似程度，表达式为：</p>
+<script type="math/tex; mode=display">
+Dice=\frac{2|A \cap B|}{|A|+|B|}</script><p>对于两幅图像来说，Dice可以写成：</p>
+<script type="math/tex; mode=display">
+Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i}}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}}</script><p>其中$ p_i $ 和$ g_i$ 表示的是预测图和Ground Truth上的像素点，在二值分割任务中，只有两种取值：0和1。</p>
+<p>从上式中可以看出，当Ground Truth中的像素值全为0（即，没有目标前景区域）时，如果预测的结果也为全0的图像，导致上式的分子分母同为0，但是此时的Dice应该为1，故需要对上式的分子分母加上一个smooth平滑：</p>
+<script type="math/tex; mode=display">
+Dice=\frac{2 \sum_{i}^{N} p_{i} g_{i} + smooth}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}+smooth}</script>
         
       
 
@@ -427,7 +430,6 @@
       
         <h2 id="一、函数与参数"><a href="#一、函数与参数" class="headerlink" title="一、函数与参数"></a>一、函数与参数</h2><h5 id="1、传值参数"><a href="#1、传值参数" class="headerlink" title="1、传值参数"></a>1、传值参数</h5><p>考察一个函数来计算表达式<code>a+b*c</code>,其中，a，b，c是整数，结果也是一个整数，所以有</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">abc1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    reture a + b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>a，b，c都是函数abc的<strong>形参</strong>，调用的时候：<code>z=abc(2,x,y)</code>2，x，y为对应的<strong>实参</strong>。a,b,c实际上是<strong>传值参数</strong>，在函数执行前，把实参复制给形参，这个过程是由形参类型的<strong>复制构造函数</strong>来完成。</p>
 <p>如果实参和形参的类型不同，必须进行类型转换，实参会转换成形参的类型。当函数运行结束的时候，形参的<strong>析构函数</strong>被调用，释放形参。当函数运行完后，形参的值不会被复制到对于的实参中。<strong>因此，函数调用是不会修改与形参对应实参的值</strong>。</p>
 <h5 id="2、模板函数"><a href="#2、模板函数" class="headerlink" title="2、模板函数"></a>2、模板函数</h5><p>如果希望编写一段通用的函数来计算所有类型变量的a，b，c的<code>a+b*c</code>，那么可以使用模板语句。</p>
@@ -651,7 +653,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像分割</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">EM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GMM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">non-local</a>
               </li>
             
             <div class="clearfix"></div>
