@@ -148,6 +148,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C艹-回顾第三部分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        
+<a href="/2019/07/05/C艹-回顾第三部分/" class="archive-article-date">
+  	<time datetime="2019-07-05T11:59:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2019/07/05/C艹-回顾第三部分/">C++回顾：第三部分</a>
+    </h1>
+  
+</p></center>
+
+      
+        <h2 id="五、递归函数"><a href="#五、递归函数" class="headerlink" title="五、递归函数"></a>五、递归函数</h2><p>递归函数需要包含<strong>基础部分</strong>和<strong>递归部分</strong>。<strong>基础部分</strong>是一个停止条件，防止函数无限递归调用。以计算n的阶乘为例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的函数的基础部分为n&lt;=1，以计算<code>factorial(3)</code>来看，先进入<code>else</code>语句，<code>factorial(3)</code>被挂起，先去计算<code>factorial(2)</code>，又进入<code>else</code>语句，<code>factorial(2)</code>也被挂起，然后计算<code>factorial(1)</code>，返回值为1，接下来挂起的<code>factorial(2)</code>被重新计算，返回<code>2*1</code>，接下来挂起的<code>factorial(3)</code>被重新计算，返回<code>3*2*1</code>，程序结束。</p>
+<p>稍微提一下，<code>factorial(3)</code>和<code>factorial(2)</code>被挂起的时候，程序的状态（即局部变量、传值形参的值、与引用形参绑定的值、代码的执行位置）会被保留在递归栈中，当<code>factorial(1)</code>计算结束后，程序的状态会恢复(被弹出栈)。</p>
+<p>如果想对一个数组<code>a[0]</code>至<code>a[n-1]</code>的元素求和，且当<code>n=0</code>时返回0。有递归和非递归写法，当然这里默认了n不会超过数组的大小，也可以写个异常进行抛出：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">sum</span>(<span class="title">T</span> <span class="title">a</span>[], <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	T theSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		theSum += a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> theSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">rsum</span>(<span class="title">T</span> <span class="title">a</span>[], <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> a[n - <span class="number">1</span>] + rsum(a, n - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/05/C艹-回顾第三部分/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C艹-回顾第二部分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -563,6 +648,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
               </li>
             
             <div class="clearfix"></div>
