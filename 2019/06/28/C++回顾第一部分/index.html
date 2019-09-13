@@ -19,7 +19,7 @@
 <meta property="og:image" content="/2019/06/28/C++回顾第一部分/1561983072125.png">
 <meta property="og:image" content="/2019/06/28/C++回顾第一部分/1562035442571.png">
 <meta property="og:image" content="/2019/06/28/C++回顾第一部分/1562036968168.png">
-<meta property="og:updated_time" content="2019-08-18T13:33:14.262Z">
+<meta property="og:updated_time" content="2019-09-13T08:53:03.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++回顾：第一部分">
 <meta name="twitter:description" content="一、函数与参数1、传值参数考察一个函数来计算表达式a+b*c,其中，a，b，c是整数，结果也是一个整数，所以有 123int abc1(int a, int b, int c)&amp;#123;    reture a + b * c;&amp;#125;  a，b，c都是函数abc的形参，调用的时候：z=abc(2,x,y)2，x，y为对应的实参。a,b,c实际上是传值参数，在函数执行前，把实参复制给形参，这">
@@ -284,8 +284,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">bool</span> <span class="title">make2darray</span>(<span class="title">T</span> ** &amp;<span class="title">x</span>, <span class="title">int</span> <span class="title">numberOfRows</span>, <span class="title">int</span> <span class="title">numberOfCols</span>) &#123;</span></span><br><span class="line">	<span class="keyword">try</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//先创建行指针</span></span><br><span class="line">		x = <span class="keyword">new</span> T* [numberOfRows];</span><br><span class="line">		<span class="comment">//为每一行分配空间</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numberOfRows; i++)</span><br><span class="line">			x[i] = <span class="keyword">new</span> T[numberOfCols];</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (bad_alloc)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面的程序先为行指针分配了空间，其实是创建了一个<strong>指针数组</strong>，里面的每个指针都指向数组的一行首地址，注意它与<code>char (*c)[5];</code><strong>数组指针</strong>的区别。<strong>指针数组</strong>的长度为二维数组的<strong>行数</strong>，而<strong>数组指针</strong>则表示指针指向的数组的<strong>列数</strong>。</p>
-<p>接着对每一行分配空间，即对每个行指针所指向的位置分配空间（该空间的长度为列的长度）。这种方法创建的二维数组的结构长这样：</p>
-<p><img src="/2019/06/28/C++回顾第一部分/1562036968168.png" alt="1562036968168"></p>
+<p>接着对每一行分配空间，即对每个行指针所指向的位置分配空间（该空间的长度为列的长度）。这种方法创建的二维数组的结构长这样：<div align="center"><img src="/2019/06/28/C++回顾第一部分/1562036968168.png" alt="1562036968168"></div></p>
 <p>我们不应该把处理异常的操作交给<code>make2darray</code>函数，<code>make2darray</code>在出现异常的时候可以什么都不做，处理异常应该是在调用的时候去捕获。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;make2array(x,rows,cols);&#125;</span><br><span class="line"><span class="keyword">catch</span>(bad_alloc)&#123;</span><br><span class="line">	<span class="built_in">cerr</span>&lt;&lt;<span class="string">"Could not create x"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -564,15 +563,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vector</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
               </li>
              
               <li class="article-tag-list-item">

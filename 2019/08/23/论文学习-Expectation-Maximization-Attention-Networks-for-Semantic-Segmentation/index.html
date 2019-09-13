@@ -17,7 +17,7 @@
 <meta property="og:description" content="论文标题：Expectation-Maximization Attention Networks for Semantic Segmentation————ICCV 2019这篇文章利用EM算法改进attention机制：Expectation-Maximization Attention，下称EMA。与non-local的方法不同的是，文章并不是将feature map的所有像素点作为重构基，而">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/1567233700234.png">
-<meta property="og:updated_time" content="2019-09-09T02:27:40.810Z">
+<meta property="og:updated_time" content="2019-09-13T08:45:15.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation">
 <meta name="twitter:description" content="论文标题：Expectation-Maximization Attention Networks for Semantic Segmentation————ICCV 2019这篇文章利用EM算法改进attention机制：Expectation-Maximization Attention，下称EMA。与non-local的方法不同的是，文章并不是将feature map的所有像素点作为重构基，而">
@@ -207,8 +207,7 @@
 <p>值得一提的是当公式(18)中的$\lambda \rightarrow \infty$，此时$\{z_{n1},z_{n2}\cdots,z_{nk}\}$成为one-hot embedding，这种情况下每个像素只会属于一个基，且基由分配给它的那些像素的平均值更新，这是K-means聚类的做法，所以可以认为$A_E$和$A_M$是K-means聚类的一个”软版本”(soft version)。</p>
 <h5 id="4-3、Data-Reestimation"><a href="#4-3、Data-Reestimation" class="headerlink" title="4.3、Data Reestimation"></a>4.3、Data Reestimation</h5><p>$A_R$步用于重构输入$X$，在$A_E$和$A_M$步交替迭代了T步以后，利用公式(15)重构为$\tilde{\mathbf{X}}$：<br>$$<br>\tilde{\mathbf{X}}=Z^{(T)}\mu^{(T)}<br>$$<br>因为$\tilde{\mathbf{X}}$是由一个紧凑的基$\mu$得来的，所以相比于$X$，其具有低秩的特征，即目标区域内的特征方差小于输入数据$X$。</p>
 <h3 id="5、EMA-Unit"><a href="#5、EMA-Unit" class="headerlink" title="5、EMA Unit"></a>5、EMA Unit</h3><p>论文详细说明了如何将EMA应用到神经网络中，并且将其用于语义分割。从三个方面介绍：EMAU的结构、Bases Maintenance和Bases Normalization。</p>
-<h5 id="5-1、EMAU结构"><a href="#5-1、EMAU结构" class="headerlink" title="5.1、EMAU结构"></a>5.1、EMAU结构</h5><p><img src="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/1567233700234.png" alt="1567233700234"></p>
-<p>如上图所示，额外加了一个残差结构，图上也可以明显的看出$\tilde{\mathbf{X}}$比$X$有着更加紧凑的特征。前后各添加了个1×1的卷积，结构上很像bottleneck，只是把中间的3×3的卷积换成了EMA。前面的卷积操作是不带有ReLU操作的，这么做是为了使得输出范围在由$(0,+\infty)$变为$(-\infty,+\infty)$，这个操作十分重要，否则$\mu$的范围减半，相当于只有普通卷积核参数的一半。后面的卷积是为了将$\tilde{\mathbf{X}}$转换到$X$的残余空间中，这样才能相加。</p>
+<h5 id="5-1、EMAU结构"><a href="#5-1、EMAU结构" class="headerlink" title="5.1、EMAU结构"></a>5.1、EMAU结构<div align="center"><img src="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/1567233700234.png" alt="1567233700234"></div></h5><p>如上图所示，额外加了一个残差结构，图上也可以明显的看出$\tilde{\mathbf{X}}$比$X$有着更加紧凑的特征。前后各添加了个1×1的卷积，结构上很像bottleneck，只是把中间的3×3的卷积换成了EMA。前面的卷积操作是不带有ReLU操作的，这么做是为了使得输出范围在由$(0,+\infty)$变为$(-\infty,+\infty)$，这个操作十分重要，否则$\mu$的范围减半，相当于只有普通卷积核参数的一半。后面的卷积是为了将$\tilde{\mathbf{X}}$转换到$X$的残余空间中，这样才能相加。</p>
 <p>接着论文分析了一下EMA的参数量和计算量，前面提到，对于C通道的输入数据来说，整个$A_R、A_M、A_R$操作的复杂度为$O(NKC)$，由于网络中间的C很大，可以认为$K\ll C$，因此EMA的操作仅相当于一个1×1的卷积(输入和输出通道都为C，且输出大小为N(或者说是H×W))。算上额外的两个1×1的卷积，整个EMAU仅相当于1/3个3×3卷积(输入输出通道数相同)，而且EMAU的参数量只有KC。</p>
 <h5 id="5-2、Bases-Maintenance"><a href="#5-2、Bases-Maintenance" class="headerlink" title="5.2、Bases Maintenance"></a>5.2、Bases Maintenance</h5><p>在这篇论文所论述的情况下，EM算法的一个问题就是bases的初始化。EM算法虽然可以保证可以收敛，但不一定得到的是全局最优，因为虽然整体数据的似然函数是有上界的，但是E和M步都是在不断抬高下界，所以可能会收敛到局部极值。</p>
 <p>因为图像语义分割涉及到很多图像，且每幅图像都有着不同的像素特征，因此不可能只用一个$\mu$在这些不同的图片上一起进行计算，所以EMAU是针对每张图片进行的。</p>
@@ -508,15 +507,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vector</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
               </li>
              
               <li class="article-tag-list-item">

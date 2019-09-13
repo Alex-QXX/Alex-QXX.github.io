@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="/2019/08/18/表ADT/1566276321320.png">
 <meta property="og:image" content="/2019/08/18/表ADT/1566281660094.png">
-<meta property="og:updated_time" content="2019-08-21T08:26:08.304Z">
+<meta property="og:updated_time" content="2019-09-13T08:43:59.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="表 ADT">
 <meta name="twitter:description" content="一、表 ADT首先先说明一下什么是ADT，ADT中文叫法是抽象数据类型，是带有一组操作的一些对象的集合。C++的类也对ADT进行了实现，不过适当地隐藏了实现的细节，这样，程序中需要对ADT实施操作的任何其他部分都可以通过调用适当的方法来进行这样的操作。如果由于某种原因需要改变实现细节，那么通过仅仅改变执行这些ADT操作的例程应该是很容易做到的。在理想情况下，这种改变对于程序的其余部分是完全透明的。">
@@ -184,12 +184,10 @@
 <a id="more"></a>
 
 <h5 id="1、表的简单数组实现"><a href="#1、表的简单数组实现" class="headerlink" title="1、表的简单数组实现"></a>1、表的简单数组实现</h5><p>最简单的想法就是用数组来实现上述的定义与方法，但是数组是由固定容量所创建的，但是可以使用<code>vector</code>(其内部存储一个数组)在需要的时候可以增长其容量，这就解决了使用数组定义表时需要预先估计表的大小的问题。<br>数组实现的表可以使得<code>printList</code>以线性的时间运行，<code>findKth</code>以常数时间运行（这很明显，通过下标操作符），但是，插入和删除操作需要昂贵的开销，以一个极端的例子来说，需要在位置0插入，首先要做的就是移动整个数组，耗费时间为$O(N)$，当插入和删除操作在尾端时，不需要移动任何一个元素，此时为$O(1)$。所以针对上述的特性，如果我们所要实现的表在应用的过程中大多情况只涉及对表尾端的插入删除操作，且只发生对数组的访问(即只有<code>findKth</code>操作)，这种情况下，数组是表的一种恰当实现。</p>
-<h5 id="2、简单链表"><a href="#2、简单链表" class="headerlink" title="2、简单链表"></a>2、简单链表</h5><p>为了避免插入和删除操作的线性开销，我们需要保证表可以不连续存储，否则表的每个部分都可能因为插入和删除操作而整体移动。下图给出链表的一般思路：</p>
-<p><img src="/2019/08/18/表ADT/1566276321320.png" alt="1566276321320"></p>
+<h5 id="2、简单链表"><a href="#2、简单链表" class="headerlink" title="2、简单链表"></a>2、简单链表</h5><p>为了避免插入和删除操作的线性开销，我们需要保证表可以不连续存储，否则表的每个部分都可能因为插入和删除操作而整体移动。下图给出链表的一般思路：<div align="center"><img src="/2019/08/18/表ADT/1566276321320.png" alt="1566276321320"></div></p>
 <p>链表由一系列节点组成，这些节点不需要在内存中连续，每个节点含有一个表元素和一个<strong>链</strong>，该链指向包含当前元素<strong>后继元</strong>的<strong>后继节点</strong>，叫做<strong>next link</strong>。最后一个节点的<code>next</code>指向<code>nullptr</code>。</p>
 <p>执行<code>printList</code>和<code>find(x)</code>只需要从表的第一个节点开始顺着next link遍历该表即可，耗时是线性的。但是<code>findKth</code>操作不如数组实现的表效率高，但是<code>remove</code>和<code>insert</code>操作不需要移动很多项，而只涉及常数个节点链的改变。在表的前端和尾端进行添加操作也属于常数时间，当然这种操作需要保留到链表前端的链和到链表最后节点的链，因此典型的链表拥有到该表两端的链。删除链表的最后一项是比较复杂的，因为每个节点的next链不会存储关于该节点前驱节点的任何信息，也就是说，要想删除最后一个节点，就必须先找到指向最后节点的前驱节点，这个过程就需要$O(N)$级的时间，然后将其next链改成<code>nullptr</code>，此时指向表最后节点的链已经变了(更新)。</p>
-<p>针对上述删除最后节点需要先遍历几乎整个表的问题，如果预先保留<strong>指向最后节点的前驱节点</strong>(在图中是$A_3$)的第三个链(图中为$A_2$指向$A_3$的链)，那么的确可以通过这个链一下子找到$A_3$，但是这个链实际上在删除操作过程中是在更新的，比如在删除了$A_4$以后，$A_3$变成了最后一个节点，那么<strong>第三个链</strong>就不再是之前保留的$A_2$指向$A_3$的链，而是更新成了$A_1$指向$A_2$的链，因为此时<strong>指向最后节点的前驱节点</strong>不再是$A_3$，而是$A_2$。那为了解决删除最后节点太复杂这一问题，可以让每个节点都持有一个指向它前驱节点的链，这种结构称为<strong>双向链表</strong>：</p>
-<p><img src="/2019/08/18/表ADT/1566281660094.png" alt="1566281660094"></p>
+<p>针对上述删除最后节点需要先遍历几乎整个表的问题，如果预先保留<strong>指向最后节点的前驱节点</strong>(在图中是$A_3$)的第三个链(图中为$A_2$指向$A_3$的链)，那么的确可以通过这个链一下子找到$A_3$，但是这个链实际上在删除操作过程中是在更新的，比如在删除了$A_4$以后，$A_3$变成了最后一个节点，那么<strong>第三个链</strong>就不再是之前保留的$A_2$指向$A_3$的链，而是更新成了$A_1$指向$A_2$的链，因为此时<strong>指向最后节点的前驱节点</strong>不再是$A_3$，而是$A_2$。那为了解决删除最后节点太复杂这一问题，可以让每个节点都持有一个指向它前驱节点的链，这种结构称为<strong>双向链表</strong>：<div align="center"><img src="/2019/08/18/表ADT/1566281660094.png" alt="1566281660094"></div></p>
 <h2 id="二、STL中的vector和list"><a href="#二、STL中的vector和list" class="headerlink" title="二、STL中的vector和list"></a>二、STL中的vector和list</h2><p>标准模板库(STL)中包含了一些常用数据结构的实现，表ADT也在其中。表有两种流行的实现方法：一是利用<code>vector</code>提供表的一种可增长的数组实现，优点在于常数时间的索引操作，缺点是插入和删除操作代价高，除非发生在尾端。二是利用<code>list</code>提供表的双向链表的实现，缺点是不易索引。同时，STL中的<code>vector</code>和<code>list</code>在进行查找时都是低效的。</p>
 <p><code>vector</code>和<code>list</code>都是类模板，两者有几个共有的方法，其中下面三个实际上对所有STL容器都是可用的：</p>
 <ul>
@@ -537,15 +535,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vector</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">list</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
               </li>
              
               <li class="article-tag-list-item">
