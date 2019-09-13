@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href>
-  <title>Archives: 2019 | Alex-Qin的博客</title>
+  <title>栈、队列 ADT | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深度学习与图像处理，智能医学影像处理，计算机视觉">
-<meta name="keywords" content="深度学习，图像处理，智能医疗影像处理，计算机视觉">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alex-Qin的博客">
-<meta property="og:url" content="/archives/2019/index.html">
+  <meta name="description" content="一、栈 ADT栈是一个带有限制的表，它的插入与删除只能在一个位置上进行，即只能在表的末端进行，这个末端叫做栈顶。 1、栈模型及其实现栈的基本操作为push和pop，前者等价一次插入，后者等价删除最近插入的元素。如果想查看最近插入的元素但不想pop，可通过top操作来实现。对空栈执行pop或者top一般会视为错误操作，另外，push操作也有一个空间有限的实现限制，但不是ADT错误。 栈也叫做LIFO">
+<meta name="keywords" content="C++,数据结构与算法,ADT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈、队列 ADT">
+<meta property="og:url" content="/2019/09/11/栈、队列ADT/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
-<meta property="og:description" content="深度学习与图像处理，智能医学影像处理，计算机视觉">
+<meta property="og:description" content="一、栈 ADT栈是一个带有限制的表，它的插入与删除只能在一个位置上进行，即只能在表的末端进行，这个末端叫做栈顶。 1、栈模型及其实现栈的基本操作为push和pop，前者等价一次插入，后者等价删除最近插入的元素。如果想查看最近插入的元素但不想pop，可通过top操作来实现。对空栈执行pop或者top一般会视为错误操作，另外，push操作也有一个空间有限的实现限制，但不是ADT错误。 栈也叫做LIFO">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/2019/09/11/栈、队列ADT/1568361288264.png">
+<meta property="og:image" content="/2019/09/11/栈、队列ADT/1568361475388.png">
+<meta property="og:image" content="/2019/09/11/栈、队列ADT/1568361737665.png">
+<meta property="og:image" content="/2019/09/11/栈、队列ADT/1568361790937.png">
+<meta property="og:updated_time" content="2019-09-13T08:29:45.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alex-Qin的博客">
-<meta name="twitter:description" content="深度学习与图像处理，智能医学影像处理，计算机视觉">
+<meta name="twitter:title" content="栈、队列 ADT">
+<meta name="twitter:description" content="一、栈 ADT栈是一个带有限制的表，它的插入与删除只能在一个位置上进行，即只能在表的末端进行，这个末端叫做栈顶。 1、栈模型及其实现栈的基本操作为push和pop，前者等价一次插入，后者等价删除最近插入的元素。如果想查看最近插入的元素但不想pop，可通过top操作来实现。对空栈执行pop或者top一般会视为错误操作，另外，push操作也有一个空间有限的实现限制，但不是ADT错误。 栈也叫做LIFO">
+<meta name="twitter:image" content="/2019/09/11/栈、队列ADT/1568361288264.png">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -146,37 +152,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-栈、队列ADT" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+      <header class="article-header">
+        
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2019/09/11/栈、队列ADT/" class="archive-article-date">
   	<time datetime="2019-09-11T12:23:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-11</time>
 </a>
-        </div>
-    	 
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/栈、队列ADT/">栈、队列 ADT</a>
+    <h1 class="article-title_code_ant" itemprop="name">
+      栈、队列 ADT
     </h1>
   
+</p></center>
 
-        <div class="article-info info-on-right">
-          
+      
+        <h2 id="一、栈-ADT"><a href="#一、栈-ADT" class="headerlink" title="一、栈 ADT"></a>一、栈 ADT</h2><p>栈是一个带有限制的表，它的插入与删除只能在一个位置上进行，即只能在表的末端进行，这个末端叫做<strong>栈顶</strong>。</p>
+<h5 id="1、栈模型及其实现"><a href="#1、栈模型及其实现" class="headerlink" title="1、栈模型及其实现"></a>1、栈模型及其实现</h5><p>栈的基本操作为<code>push</code>和<code>pop</code>，前者等价一次插入，后者等价删除最近插入的元素。如果想查看最近插入的元素但不想<code>pop</code>，可通过<code>top</code>操作来实现。对空栈执行<code>pop</code>或者<code>top</code>一般会视为错误操作，另外，<code>push</code>操作也有一个空间有限的实现限制，但不是ADT错误。</p>
+<p>栈也叫做LIFO(后进先出)表，且一般的栈模型中，位于栈顶的元素是唯一可见的元素。</p>
+<p>由于栈是一个表，因此任意实现表的方式都能实现栈。显然，<code>list</code>和<code>vector</code>都支持栈的操作，如果使用单链表来实现，需要在表的前端插入来实现<code>push</code>操作，通过删除表的前端元素来实现<code>pop</code>操作，<code>top</code>操作只考查表前端的元素并返回它的值，有时候，需要把<code>top</code>的功能合并到<code>pop</code>中，即返回<code>pop</code>出来的元素。另一种实现避免了链，它用到来自<code>vector</code>的<code>back</code>、<code>push_back</code>和<code>pop_back</code>，因此实现起来很简单，与每个栈相关联的是<code>theArray</code>和<code>topOfStack</code>，空栈的<code>topOfStack</code>为-1。</p>
+<h5 id="2、栈的应用"><a href="#2、栈的应用" class="headerlink" title="2、栈的应用"></a>2、栈的应用</h5><h6 id="平衡符号"><a href="#平衡符号" class="headerlink" title="平衡符号"></a>平衡符号</h6><p>括号的匹配是编译器检查语法错误中常用的一个算法，这里简化只有圆括号，方括号和花括号进行检验并忽略出现的任何其它字符。这个简单的算法需要用到一个栈，思路如下：</p>
+<blockquote>
+<p>做一个空栈，依次读取字符直到文件尾。如果字符是一个开放符号，则<code>push</code>入栈，如果是一个封闭符号，则当栈为空时报错，否则<code>pop</code>栈顶元素且如果弹出的不是对应的开放符号则报错。如果文件读完，栈不为空也报错。</p>
+</blockquote>
+<h6 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h6><p>考虑这么一个表达式：$4.99<em>1.06+5.99+6.99</em>1.06$，对于该计算式典型的计算顺序是将4.99和1.06相乘并存为A<del>1</del>，然后将5.99与A<del>1</del>相加后再存入A<del>1</del>，再将6.99和1.06相乘答案存为A<del>2</del>，最后将A<del>1</del>和A<del>2</del>相加并将最后的答案放入A<del>1</del>，这种操作顺序书写为：$4.99 1.06<em>5.99+6.991.06</em>+$。这种写法叫做<strong>后缀记法</strong>或者叫<strong>逆波兰记法</strong>，计算这个问题最容易的方法就是使用一个栈，当遇到一个数就把其<code>push</code>入栈，在遇到一个运算符时就将其作用于从栈弹出的两个个数上，再将所得结果推入栈中。</p>
+<p>计算一个后缀表达式花费的时间是$O(N)$，因为对输入中的每个元素的处理都是由一些栈的操作组成从而花费常数的时间，而且当一个表达式以后缀记号给出时，没有必要知道任何优先的规则，只要按照顺序计算。</p>
+<h6 id="中缀到后缀的转换"><a href="#中缀到后缀的转换" class="headerlink" title="中缀到后缀的转换"></a>中缀到后缀的转换</h6><p>栈不仅可以用来计算后缀表达式的值，而且可以将一个标准形式的表达式(中缀式)转换成后缀式。举个例子：对于表达式$a+b<em>c+(d</em>e+f)<em>g$，转换成后缀表达式的输出为$abc</em>+de<em>f+g</em>+$</p>
+<p>思路是：当读到一个操作数的时候，立即把它放到输出中，但运算符不立即输出，而是必须先存在栈中，包括左括号也需要放入栈中。如果遇到一个右括号就将栈元素弹出，知道弹出对应的左括号为止，此时左括号被弹出但是不输出。在把当前运算符压入栈之前，那些在栈中并在当前操作符之前要完成使用的运算符要被弹出，也就是在入栈一个新的操作符时，需要弹出栈中所有优先级比当前操作符高的元素。特殊的情况是对于<code>(</code>，在入栈的时候优先级最高，也就是说<code>(</code>在入栈的时候不会有任何操作符出栈，而当它在栈中以后则是优先级最低的，从而不会被任何一个运算符而弹出，除非遇到<code>)</code>。</p>
+<p>给出一个例子：对于表达式$a+b<em>c+(d</em>e+f)<em>g$，转换成后缀表达式。首先读入<code>a</code>，然后就输出，然后读入<code>+</code>入栈，接下来读入<code>b</code>并输出。接着读入`</em><code>，因为</code>+<code>优先级比</code><em><code>低，所以没有出栈操作，直接将</code></em><code>入栈，接着读入</code>c<code>并输出，然后读入</code>+<code>，发现栈顶元素</code><em><code>优先级高于当前的</code>+<code>，所以</code></em><code>出栈并输出，然后发现栈顶元素</code>+<code>优先级与当前的</code>+<code>相同，所以</code>+<code>也被弹出并输出，最后再将当前的</code>+<code>入栈，接着读入</code>(<code>，因为之前定义过其属于最高的优先级，所以直接入栈，然后读入</code>d<code>并输出。接着读入</code><em><code>，因为</code>(<code>在栈内的优先级变为最低，所以没有出栈操作，直接将</code></em><code>入栈，然后读入</code>e<code>并输出，接着往后读入</code>+<code>，此时会弹出</code><em><code>，压入</code>+<code>，紧接着读入</code>f<code>并输出，接着读入</code>)<code>，此时需要将栈元素弹出直到</code>(<code>，然后读入</code></em><code>，因为此时栈顶元素为</code>+<code>，所以</code>*<code>直接入栈，然后读入</code>g`并输出，此时输入已经遍历完毕，但是栈内还有元素，将他们全部弹出并输出即可。</p>
+<h6 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h6><p>上述的检测平衡符号的算法实际上是一种函数调用的方式。当调用一个新函数时，主调例程的所有局部变量都需要由系统存储起来，否则被调用的新函数会重写主调函数的变量所使用的内存。除此之外，主调例程当前的位置必须存储，以便在新函数运行完毕后知道向哪里转移。该问题就类似于符号平衡，函数调用和函数返回基本上类似于<code>(</code>和<code>)</code>。</p>
+<p>显然，这个工作可由一个栈来完成，所存储的信息称为<strong>活动记录</strong>，或者叫作<strong>栈帧</strong>。当前的环境由栈顶来描述，因此一条返回语句就可给出前面的环境，实际计算机中的栈常常是从内存分区的高端向下增长，因此许多系统是不检测溢出的，这种情况下一旦发生栈溢出，程序将会崩溃且没有明显的说明。发生栈溢出通常是失控的递归(没有停止条件)产生的迹象，有一些完全合法且表面上无害的程序也可能越出栈空间。下面给出一个打印容器的例程：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Iterator&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Iterator start, Iterator end, ostream &amp;out = <span class="built_in">cout</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start == end)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	out &lt;&lt; *start++ &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	print(start, end, out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 上述例程是完全正确的，并且递归也没有问题，但是如果要打印的容器中含有200000个元素(或者更大)，那么这样的递归调用会产生200000个活动记录，因此很有可能会越出栈空间。上述程序就是<strong>尾递归</strong>极其不当的例子，尾递归指的是在最后一行进行的递归调用，其可以手工消除，做法就是通过一个<code>while</code>循环，并用对函数参数的一次赋值代替递归调用来模拟递归调用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Iterator&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Iterator start, Iterator end, ostream &amp;out = <span class="built_in">cout</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(start == end)</span><br><span class="line">		  <span class="keyword">return</span>;</span><br><span class="line">	  out &lt;&lt; *start++ &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尾递归的消除是很简单的，以至于某些编译器也能够自动地完成。</p>
+<h2 id="二、队列ADT"><a href="#二、队列ADT" class="headerlink" title="二、队列ADT"></a>二、队列ADT</h2><p>像栈一样，队列也是一种表，且插入在队尾，删除在队首。</p>
+<h5 id="1、队列的数组实现"><a href="#1、队列的数组实现" class="headerlink" title="1、队列的数组实现"></a>1、队列的数组实现</h5><p>任何表的实现方式对队列来说都是合法的，对于每一个队列，需要存储一个<code>theArray</code>以及位置<code>front</code>和<code>back</code>，还需要记录实际在队列中的元素个数<code>currentSize</code>。<img src="/2019/09/11/栈、队列ADT/1568361288264.png" alt="1568361288264"></p>
+<p>出队和入队的操作很简单，这里不再赘述，但是存在一个潜在的问题，对于<code>back</code>已经是数组的最后一个下表的时候，在入队就会是一个不存在的位置，比如这种情况：<img src="/2019/09/11/栈、队列ADT/1568361475388.png" alt="1568361475388"></p>
+<p>简单解决办法是，只要<code>front</code>或者<code>back</code>到达数组的尾端，它就绕回到开头，这叫做<strong>循环数组</strong>实现。<img src="/2019/09/11/栈、队列ADT/1568361737665.png" alt="1568361737665"><img src="/2019/09/11/栈、队列ADT/1568361790937.png" alt="1568361790937"></p>
+<p>还有一种实现方式不用记录大小，因为当队列为空时<code>back=front-1</code>这是一种基准情形，但是因为存在某些特殊情形，这种实现要特别小心。</p>
+<h5 id="2、队列的应用举例"><a href="#2、队列的应用举例" class="headerlink" title="2、队列的应用举例"></a>2、队列的应用举例</h5><p>当作业送交给一台打印机的时候，他们就以到达的顺序排列起来，因此被送往打印机的作业基本上被放到一个队列中(事实上有些作业可能会被在队列的中间除去，这违反了队列的严格定义)。称为<strong>排队</strong>论的整个数学分支处理用概率的方法计算用户预计要排队等待多长时间才会得到服务，等待服务的队伍能够排多长，以及其它一些诸如此类的问题。一种简单的例子是一条电话线有一个接线员，如果接线员忙，打来的电话就被放到一个等待队列中(一直放到某个最大的限度为止)，如果有k个接线员，那么这个问题解决起来要困难得多，往往需要一个队列来模拟去求解。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,218 +234,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/09/11/栈、队列ADT/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/" class="archive-article-date">
-  	<time datetime="2019-08-23T09:20:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/">论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像分割</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">EM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GMM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">non-local</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/08/21/vector和list的实现/" class="archive-article-date">
-  	<time datetime="2019-08-21T08:27:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/21/vector和list的实现/">vector和list的实现</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vector</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">list</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/08/18/表ADT/" class="archive-article-date">
-  	<time datetime="2019-08-18T13:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/18/表ADT/">表 ADT</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ADT</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/08/16/算法分析基础/" class="archive-article-date">
-  	<time datetime="2019-08-16T07:02:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/16/算法分析基础/">算法分析基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -443,8 +368,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

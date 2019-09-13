@@ -182,6 +182,7 @@
 <p>给出一些简单的定义：形如$A_{0,} A_{2,} A_{3,}, \cdots, A_{N-1}$的表，大小为$N$。除空表外的任何表，$A_i$后继$A_{i-1}$或者说$A_{i-1}$前驱$A_{i}$，表的第一个元素没有前驱，最后一个元素也没有后继，元素$A_{i}$在表中的位置为$i$。现在假设在讨论过程中的表的元素都为整数。</p>
 <p>给出上述定义后需要给出在表ADT上进行操作的集合。<code>printList</code>和<code>makeEmpty</code>是常用的操作；<code>find</code>返回某一项首次出现的位置；<code>insert</code>和<code>remove</code>一般是从表的某个位置插入或者删除某个元素；<code>findKth</code>则返回指定位置上的元素。当然，一个函数的功能怎样才算恰当，完全由程序设计员来决定，比如对特殊情况的处理（find一个表中不存在的元素）。此外还可以添加一些额外地操作，<code>next</code>和<code>previous</code>，分别可以返回指定位置后继元和前驱元的位置。</p>
 <a id="more"></a>
+
 <h5 id="1、表的简单数组实现"><a href="#1、表的简单数组实现" class="headerlink" title="1、表的简单数组实现"></a>1、表的简单数组实现</h5><p>最简单的想法就是用数组来实现上述的定义与方法，但是数组是由固定容量所创建的，但是可以使用<code>vector</code>(其内部存储一个数组)在需要的时候可以增长其容量，这就解决了使用数组定义表时需要预先估计表的大小的问题。<br>数组实现的表可以使得<code>printList</code>以线性的时间运行，<code>findKth</code>以常数时间运行（这很明显，通过下标操作符），但是，插入和删除操作需要昂贵的开销，以一个极端的例子来说，需要在位置0插入，首先要做的就是移动整个数组，耗费时间为$O(N)$，当插入和删除操作在尾端时，不需要移动任何一个元素，此时为$O(1)$。所以针对上述的特性，如果我们所要实现的表在应用的过程中大多情况只涉及对表尾端的插入删除操作，且只发生对数组的访问(即只有<code>findKth</code>操作)，这种情况下，数组是表的一种恰当实现。</p>
 <h5 id="2、简单链表"><a href="#2、简单链表" class="headerlink" title="2、简单链表"></a>2、简单链表</h5><p>为了避免插入和删除操作的线性开销，我们需要保证表可以不连续存储，否则表的每个部分都可能因为插入和删除操作而整体移动。下图给出链表的一般思路：</p>
 <p><img src="/2019/08/18/表ADT/1566276321320.png" alt="1566276321320"></p>
@@ -223,10 +224,13 @@
 </ul>
 <p><code>end</code>方法有些不同寻常，它返回了一个”越界”的迭代器，下面给出一个例子来具体理解一下，打印<code>vector v</code>的每个元素：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i != v.size(); ++i)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; v[i] &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
 <p>如果使用迭代器的方法来写：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator itr = v.begin(); itr != v.end(); ++itr)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; *itr &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
 <p>所以可以看出，迭代器对象是一个指针对象，它指向了我们想要的位置，所以，上述代码还可以写成：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator itr = v.begin();</span><br><span class="line"><span class="keyword">while</span>(itr != v.end())</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; *itr++ &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
 <p>在有了迭代器的概念后，才能继续介绍那些对表(<code>vector</code>或<code>list</code>)进行特定位置插入和删除的操作：</p>
 <ul>
 <li><code>iterator insert(iterator pos, const Object &amp;x)</code>：把<code>x</code>插入到表中由<code>pos</code><strong>指定位置之前</strong>的位置上。这个方法对<code>list</code>来说是一个常数时间的操作，但是对<code>vector</code>不是。返回的是一个指向被插入项位置的迭代器。</li>
@@ -235,14 +239,18 @@
 </ul>
 <p>下面的代码实现了隔项删除表中元素的功能：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeEveryOtherItem</span><span class="params">(Container &amp; lst)</span></span>&#123;</span><br><span class="line">	<span class="keyword">auto</span> itr = lst.begin();</span><br><span class="line">	<span class="keyword">while</span>(str != lst.end())&#123;</span><br><span class="line">		itr = lst.erase(itr);</span><br><span class="line">		<span class="keyword">if</span>(itr != lst.end())</span><br><span class="line">			++itr;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>为了通用性，这里定义了一个函数模板，当<code>lst</code>是一个<code>list&lt;xxx&gt;</code>对象时，是一个线性时间的函数，但是如果<code>lst</code>是一个<code>vector&lt;xxx&gt;</code>对象时，该函数将花费二次的时间，因为<code>erase</code>操作对于<code>vector</code>来说就需要$O(N)$。</p>
 <h5 id="2、const-iterator"><a href="#2、const-iterator" class="headerlink" title="2、const_iterator"></a>2、<code>const_iterator</code></h5><p>考虑这么一个事实：<code>*itr</code>的结果不只是迭代器正在指向的项的值，而且还是该项本身。下面的代码展示了这个特性的好处：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container, <span class="keyword">typename</span> Object&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(Container &amp;c, <span class="keyword">const</span> Object &amp;newValue)</span></span>&#123;</span><br><span class="line">	<span class="keyword">typename</span> Container::iterator itr = c.begin();</span><br><span class="line">	<span class="keyword">while</span>(itr != c.end())</span><br><span class="line">	 *itr++ = newValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>将表中所有的元素替换成一个指定的对象，迭代器的这个特性就会帮上大忙，上述代码对于<code>list</code>和<code>vector</code>都是线性时间的。但潜在的问题在于，有时候我们的需求<code>container c</code>是以常量引用传入函数，也就是说，不允许函数修改表的内容，但是我们可能在不经意之前又需要去修改表的内容，比如下面的函数，它会按照顺序打印一个<code>list</code>并且还会试图对<code>list</code>进行修改：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &amp;lst, ostream &amp;out = <span class="built_in">cout</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">typename</span> Container::iterator = lst.begin();</span><br><span class="line">    <span class="keyword">while</span>(itr != c.end())&#123;</span><br><span class="line">        out &lt;&lt; *itr &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        *itr = <span class="number">0</span>;</span><br><span class="line">        ++itr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>上述代码的问题就在于<code>*itr = 0;</code>这一句，是无法通过编译的。STL的解决方法是提供一个内嵌类型<code>const_iterator</code>，区别在于，<code>const_iterator</code>的<code>operator *</code>操作会返回一个常量引用，所以如果<code>itr</code>是一个<code>const_iterator</code>，那么<code>*itr = 0;</code>这句话在语法上就会出错，在编译前就可以检查出来。如果觉得很难记住两个迭代器类型，使用<code>auto</code>来接收是一个很好的办法。</p>
 <p>值得一提的是，C++11允许编写即使<code>Container</code>类没有<code>begin</code>和<code>end</code>成员函数也能正常运行的程序。那么可以定义非成员函数<code>begin</code>和<code>end</code>来使得调用由<code>c.begin()</code>变为<code>begin(c)</code>，这么做的优点有：它能够使得代码能够在有<code>begin/end</code>成员函数的容器上正常运行，同时，对那些没有<code>begin/end</code>成员函数，但以后可能用一些适当的非成员函数来扩充功能的容器也能正常运行，对于已有<code>begin/end</code>成员函数的容器，可以这么写：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</span><br><span class="line">auto begin(Container &amp;c) -&gt; decltype(c.begin())&#123;</span><br><span class="line">	<span class="keyword">return</span> c.begin();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Container&gt;</span><br><span class="line">auto begin(const Container &amp;c) -&gt; decltype(c.begin())&#123;</span><br><span class="line">	<span class="keyword">return</span> c.begin();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>使用非成员函数<code>begin(c)</code>和<code>end(c)</code>，能同所有容器类型一块工作，甚至数组也可以，并不是只针对提供了STL风格的<code>c.begin()</code>和<code>c.end()</code>成员函数的容器。如果正在使用一个非STL集合类型，这个类型提供迭代器但不是STL风格的<code>c.begin()</code>和<code>c.end()</code>，可以对他的非成员函数<code>begin()</code>和<code>end()</code>进行重载，这样就可以使用同STL容器同样的风格进行编码。 </p>
 
       
@@ -517,10 +525,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
               </li>
              
@@ -529,7 +533,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +542,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">list</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">矩阵类</a>
               </li>
              
               <li class="article-tag-list-item">
