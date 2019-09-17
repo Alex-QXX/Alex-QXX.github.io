@@ -148,6 +148,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        
+<a href="/2019/09/13/树/" class="archive-article-date">
+  	<time datetime="2019-09-13T08:59:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2019/09/13/树/">树</a>
+    </h1>
+  
+</p></center>
+
+      
+        <h2 id="一、树的定义和实现"><a href="#一、树的定义和实现" class="headerlink" title="一、树的定义和实现"></a>一、树的定义和实现</h2><p>对于大量的输入数据，链表的线性访问耗时过多，树是一种简单的数据结构，其大部分操作的运行时间平均为$O(log N)$。</p>
+<p>定义树的一种自然的方式是递归的方式，一棵树是一些节点的集合，由一个根节点<code>r</code>以及0个或者多个非空的子树组成，这些子树中的每一棵树的根都被来自根<code>r</code>的一条有向的边所连接。所以，一棵树是N个节点和N-1条边的集合。</p>
+<p>实现树的一种方法是在每一个节点除数据外还要有一些链，使得该节点的每一个儿子都被一个链所链接，然而由于每个节点的儿子数可以变化很大并且事先不知道，因次在数据结构中建立到各子节点直接的链接会浪费太多空间，解决办法就是对每个节点维护两个链，一个指向第一个儿子节点，一个指向下一个兄弟节点，即将每个节点的所有儿子都放在树节点的链表中。<div align="center"><img src="/2019/09/13/树/1568535579940.png" alt="1568535579940"></div></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">    Object element;</span><br><span class="line">    TreeNode *firstChild; </span><br><span class="line">    TreeNode *nextSibling; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、二叉树"><a href="#二、二叉树" class="headerlink" title="二、二叉树"></a>二、二叉树</h2><p>每个节点最多有两个儿子的树即二叉树。因此这就可以直接保存父亲到每个儿子的直链(因为最多就两个)，每个子节点也不需要去保存指向下一个兄弟节点的链。即：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BinaryNode</span>&#123;</span></span><br><span class="line">    Object element;</span><br><span class="line">    BinaryNode *left; <span class="comment">//左儿子</span></span><br><span class="line">    BinaryNode *right; <span class="comment">//右儿子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二叉树的一个例子——表达式树"><a href="#二叉树的一个例子——表达式树" class="headerlink" title="二叉树的一个例子——表达式树"></a>二叉树的一个例子——表达式树</h5><p>表达式树的叶子节点是操作数，比如常量或者变量的名字，而其它的节点为操作符。一般情况下操作符都是二目的，所以表达式树是二叉树，也存在一个节点可能只有一个儿子的情况，此时该节点的操作符是一目的。给出一个表达式树：<div align="center"></div></p>
+<p><img src="/2019/09/13/树/1568643402182.png" alt="1568643402182"></p>
+<p>可以递归计算左子树和右子树所得到的值应用在根节点运算符上而得到整个树的表达式。上图中左子树的值为<code>a+(b*c)</code>，右子树的值为<code>((d*e)+f)*g</code>，因此整个树的表示为<code>(a+(b*c))+(((d*e)+f)*g)</code>。该结果得到的式子可以看出有很多左右括号，是因为每个递归都会计算出左右子树(除了叶子节点)的带括号的表达式。</p>
+<p>得到上式是需要遍历整个树的所有节点的，一般分为三种方式遍历：先序、中序、后序。</p>
+<p>中序遍历一个表达式树是很让人理解的一种方式，先递归地产生一个带括号的左表达式，然后打印在根节点处的操作符，再递归地产生一个带括号的右表达式。即(左，节点，右)的方式。</p>
+<p>后序遍历就是先递归地产生左右子树的表达式，再打印运算符这样得到的表达式为<code>abc*+de*f+g*+</code>这就是在之前介绍栈的过程中说到的后缀表示法。</p>
+<p>先序遍历是先打印根节点，再递归打印左右子树的表达式。此时得到的为<code>++a*bc*+*defg</code>，这是一种不太常用的前缀记法。</p>
+<hr>
+<p>当已知一个后缀表达式，给出一个算法来将其转变成表达树。并且前面已经提到如何将一个中缀表达式转变成后缀表达式，所以这两种常用的输入类型都能够通过该算法生成表达式树。</p>
+<p>这里的方法类似于对后缀表达式求值得算法。当遇到操作数时，就建立一个单节点树并将指向它的指针入栈，如果遇到操作符，就从栈中弹出指向两棵树T<del>1</del>和T<del>2</del>的两个指针，T<del>1</del>先弹出，形成一个新的树，该树的根节点为当前读入的操作符，它的左右儿子分别为T<del>2</del>和T<del>1</del>，然后将新的树的指针入栈。</p>
+<p>举个例子：输入为<code>ab+cde+**</code>，前两个读入数据为操作数，所以创建两个单节点树并入栈。<div align="center"><img src="/2019/09/13/树/1568644887315.png" alt="1568644887315"></div></p>
+<p>接着，读入<code>+</code>，因此，指向两棵树的指针被弹出，形成一个新的树并将其压入栈中，注意，此时后入栈的<code>b</code>先出栈，是新树的右儿子。<div align="center"><img src="/2019/09/13/树/1568645015854.png" alt="1568645015854"></div></p>
+<p>接着读入<code>c,d,e</code>，同样创建新的单节点树。<div align="center"><img src="/2019/09/13/树/1568645214054.png" alt="1568645214054"></div></p>
+<p>然后读入<code>+</code>，合并栈顶的两个单节点树。<div align="center"><img src="/2019/09/13/树/1568645304147.png" alt="1568645304147"></div></p>
+<p>继续，读入<code>*</code>，合并栈顶的两个树。<div align="center"><img src="/2019/09/13/树/1568645350916.png" alt="1568645350916"></div></p>
+<p>最后读入<code>*</code>，合并，指向最后的树的指针被留在栈中。<div align="center"><img src="/2019/09/13/树/1568645412335.png" alt="1568645412335"></div></p>
+<h5 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h5><p>二叉树的重要应用就是搜索，假设现在的二叉树中每个节点所存储的数据为一个整数，二叉查找树就是对于每一个节点来说，其左子树的所有项的值都小于该节点，其右子树的所有项的值均大于该节点，这里为了简单起见不考虑有重复项的情况。也就是说二叉查找树是一种特殊的二叉树，其所有的元素可以用某一种一致的方式排序。下面给出二叉查找树<code>BinarySearchTree</code>类模板的接口：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by ALEX on 2019/9/16.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CLIONPROJECTS_BINARYSEARCHTREE_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CLIONPROJECTS_BINARYSEARCHTREE_H</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Comparable&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySearchTree</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    BinarySearchTree();</span><br><span class="line"></span><br><span class="line">    BinarySearchTree(<span class="keyword">const</span> BinarySearchTree &amp;rhs);</span><br><span class="line"></span><br><span class="line">    BinarySearchTree(BinarySearchTree &amp;&amp;rhs);</span><br><span class="line"></span><br><span class="line">    ~BinarySearchTree();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">const</span> Comparable &amp;<span class="title">findMin</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">const</span> Comparable &amp;<span class="title">findMax</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">contains</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printTree</span><span class="params">(ostream &amp;out = <span class="built_in">cout</span>)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Comparable &amp;&amp;x)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span></span>;</span><br><span class="line"></span><br><span class="line">    BinarySearchTree &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> BinarySearchTree &amp;rhs);</span><br><span class="line"></span><br><span class="line">    BinarySearchTree &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> BinarySearchTree &amp;&amp;rhs);</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BinaryNode</span> &#123;</span></span><br><span class="line">        Comparable element;</span><br><span class="line">        BinaryNode *left;</span><br><span class="line">        BinaryNode *right;</span><br><span class="line"></span><br><span class="line">        BinaryNode(<span class="keyword">const</span> Comparable &amp;theElement, BinaryNode *lt, BinaryNode *rt) : element&#123;theElement&#125;, left&#123;lt&#125;,</span><br><span class="line">                                                                                   right&#123;rt&#125; &#123;&#125;</span><br><span class="line"></span><br><span class="line">        BinaryNode(Comparable &amp;&amp;theElement, BinaryNode *lt, BinaryNode *rt) : element&#123;<span class="built_in">std</span>::move(theElement)&#125;, left&#123;lt&#125;,</span><br><span class="line">                                                                              right&#123;rt&#125; &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    BinaryNode *root;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x, BinaryNode *&amp;t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Comparable &amp;&amp;x, BinaryNode *&amp;t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x, BinaryNode *&amp;t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">BinaryNode *<span class="title">findMin</span><span class="params">(BinaryNode *t)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">BinaryNode *<span class="title">findMax</span><span class="params">(BinaryNode *t)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">contains</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x, BinaryNode *t)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">(BinaryNode *&amp;t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printTree</span><span class="params">(BinaryNode *t, ostream &amp;out)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">BinaryNode *<span class="title">clone</span><span class="params">(BinaryNode *t)</span> <span class="keyword">const</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">//CLIONPROJECTS_BINARYSEARCHTREE_H</span></span></span><br></pre></td></tr></table></figure>
+
+<p>私有成员函数通过传递引用调用的方法来改变私有数据成员，也就是说，公共成员函数可以通过把指向根节点的指针传递给私有成员函数，然后私有成员函数改变根的值使得<code>root</code>指向另外的”根”节点，这在<code>insert</code>时会体现得很明显。下面给出一些公有成员函数如何调用私有成员函数的方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">contains</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> contains(x, root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span> </span>&#123;</span><br><span class="line">       insert(x, root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Comparable &amp;&amp;x)</span> </span>&#123;</span><br><span class="line">       insert(x, root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span> </span>&#123;</span><br><span class="line">       remove(x, root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ADT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/13/树/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-栈、队列ADT" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -518,93 +632,9 @@
 
 
   
-    <article id="post-算法分析基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        
-<a href="/2019/08/16/算法分析基础/" class="archive-article-date">
-  	<time datetime="2019-08-16T07:02:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2019/08/16/算法分析基础/">算法分析基础</a>
-    </h1>
-  
-</p></center>
-
-      
-        <p><strong>算法</strong>是为求解一个问题需要遵循的、被清楚地指定的简单指令的集合。对于一个问题，一旦某种算法给定并且被确定是正确的，那么最重要的一步就是确定该算法将需要多少诸如时间或者空间等资源量的问题。</p>
-<h2 id="一、数学基础"><a href="#一、数学基础" class="headerlink" title="一、数学基础"></a>一、数学基础</h2><p>首先给出四个定义：<div align="center"><img src="/2019/08/16/算法分析基础/1565939372765.png" alt="1565939372765"></div></p>
-<p>目的是为了在函数间建立一种相对的级别，举个例子：对于较小的N来说，1000N是比N^2^大的，但是N^2^以更快的速度增长，这种情况下，N=1000是一个转折点，在1000以后，N^2^将一直比1000N大。定义2.1就是说，最后总会存在某个点n<del>0</del>，从该点以后，$c \cdot f(N)$总是至少与$T(N)$一样大，在刚刚的例子中，可以令$T(N) = 1000N, f(N)=N^2, n_0=1000,c=1$，也可以认为$n_0=10,c=100$,此时，$T(N)=10N$，因此可以说$1000N=O(N^2)$，叫做大O标记法。</p>
-<p>通常当一个函数表示为$T(N)=O(f(N))$时，是在说明函数$T(N)$是以不快于$f(N)$的速度增长，因此$f(N)$是$T(N)$的一个<strong>上界</strong>，同理反过来写就是$f(N)=\Omega(T(N))$，意味着$T(N)$是$f(N)$的<strong>下界</strong>。为此，可以得到一些重要的结论：<div align="center"><img src="/2019/08/16/算法分析基础/1565940493512.png" alt="1565940493512"></div></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/16/算法分析基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

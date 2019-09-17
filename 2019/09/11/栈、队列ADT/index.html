@@ -20,7 +20,7 @@
 <meta property="og:image" content="/2019/09/11/栈、队列ADT/1568361475388.png">
 <meta property="og:image" content="/2019/09/11/栈、队列ADT/1568361737665.png">
 <meta property="og:image" content="/2019/09/11/栈、队列ADT/1568361790937.png">
-<meta property="og:updated_time" content="2019-09-13T08:43:11.473Z">
+<meta property="og:updated_time" content="2019-09-13T08:58:58.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="栈、队列 ADT">
 <meta name="twitter:description" content="一、栈 ADT栈是一个带有限制的表，它的插入与删除只能在一个位置上进行，即只能在表的末端进行，这个末端叫做栈顶。 1、栈模型及其实现栈的基本操作为push和pop，前者等价一次插入，后者等价删除最近插入的元素。如果想查看最近插入的元素但不想pop，可通过top操作来实现。对空栈执行pop或者top一般会视为错误操作，另外，push操作也有一个空间有限的实现限制，但不是ADT错误。 栈也叫做LIFO">
@@ -208,7 +208,7 @@
 <p>出队和入队的操作很简单，这里不再赘述，但是存在一个潜在的问题，对于<code>back</code>已经是数组的最后一个下表的时候，在入队就会是一个不存在的位置，比如这种情况：<div align="center"><img src="/2019/09/11/栈、队列ADT/1568361475388.png" alt="1568361475388"></div></p>
 <p>简单解决办法是，只要<code>front</code>或者<code>back</code>到达数组的尾端，它就绕回到开头，这叫做<strong>循环数组</strong>实现。<div align="center"><img src="/2019/09/11/栈、队列ADT/1568361737665.png" alt="1568361737665"><img src="/2019/09/11/栈、队列ADT/1568361790937.png" alt="1568361790937"></div></p>
 <p>还有一种实现方式不用记录大小，因为当队列为空时<code>back=front-1</code>这是一种基准情形，但是因为存在某些特殊情形，这种实现要特别小心。</p>
-<h5 id="2、队列的应用举例"><a href="#2、队列的应用举例" class="headerlink" title="2、队列的应用举例"></a>2、队列的应用举例</h5><p>当作业送交给一台打印机的时候，他们就以到达的顺序排列起来，因此被送往打印机的作业基本上被放到一个队列中(事实上有些作业可能会被在队列的中间除去，这违反了队列的严格定义)。称为<strong>排队</strong>论的整个数学分支处理用概率的方法计算用户预计要排队等待多长时间才会得到服务，等待服务的队伍能够排多长，以及其它一些诸如此类的问题。一种简单的例子是一条电话线有一个接线员，如果接线员忙，打来的电话就被放到一个等待队列中(一直放到某个最大的限度为止)，如果有k个接线员，那么这个问题解决起来要困难得多，往往需要一个队列来模拟去求解。</p>
+<h5 id="2、队列的应用举例"><a href="#2、队列的应用举例" class="headerlink" title="2、队列的应用举例"></a>2、队列的应用举例</h5><p>当作业送交给一台打印机的时候，他们就以到达的顺序排列起来，因此被送往打印机的作业基本上被放到一个队列中(事实上有些作业可能会被在队列的中间除去，这违反了队列的严格定义)。称为<strong>排队论</strong>的整个数学分支处理用概率的方法计算用户预计要排队等待多长时间才会得到服务，等待服务的队伍能够排多长，以及其它一些诸如此类的问题。一种简单的例子是一条电话线有一个接线员，如果接线员忙，打来的电话就被放到一个等待队列中(一直放到某个最大的限度为止)，如果有k个接线员，那么这个问题解决起来要困难得多，往往需要一个队列来模拟去求解。</p>
 
       
 
@@ -299,6 +299,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/09/13/树/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          树
+        
+      </div>
+    </a>
   
   
     <a href="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/" id="article-nav-older" class="article-nav-link-wrap">

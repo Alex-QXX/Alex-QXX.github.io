@@ -6,22 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href>
-  <title>论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation | Alex-Qin的博客</title>
+  <title>树 | Alex-Qin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="论文标题：Expectation-Maximization Attention Networks for Semantic Segmentation————ICCV 2019这篇文章利用EM算法改进attention机制：Expectation-Maximization Attention，下称EMA。与non-local的方法不同的是，文章并不是将feature map的所有像素点作为重构基，而">
-<meta name="keywords" content="深度学习,图像分割,EM,GMM,non-local">
+  <meta name="description" content="一、树的定义和实现对于大量的输入数据，链表的线性访问耗时过多，树是一种简单的数据结构，其大部分操作的运行时间平均为$O(log N)$。 定义树的一种自然的方式是递归的方式，一棵树是一些节点的集合，由一个根节点r以及0个或者多个非空的子树组成，这些子树中的每一棵树的根都被来自根r的一条有向的边所连接。所以，一棵树是N个节点和N-1条边的集合。 实现树的一种方法是在每一个节点除数据外还要有一些链，使">
+<meta name="keywords" content="C++,数据结构与算法,ADT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation">
-<meta property="og:url" content="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/index.html">
+<meta property="og:title" content="树">
+<meta property="og:url" content="/2019/09/13/树/index.html">
 <meta property="og:site_name" content="Alex-Qin的博客">
-<meta property="og:description" content="论文标题：Expectation-Maximization Attention Networks for Semantic Segmentation————ICCV 2019这篇文章利用EM算法改进attention机制：Expectation-Maximization Attention，下称EMA。与non-local的方法不同的是，文章并不是将feature map的所有像素点作为重构基，而">
+<meta property="og:description" content="一、树的定义和实现对于大量的输入数据，链表的线性访问耗时过多，树是一种简单的数据结构，其大部分操作的运行时间平均为$O(log N)$。 定义树的一种自然的方式是递归的方式，一棵树是一些节点的集合，由一个根节点r以及0个或者多个非空的子树组成，这些子树中的每一棵树的根都被来自根r的一条有向的边所连接。所以，一棵树是N个节点和N-1条边的集合。 实现树的一种方法是在每一个节点除数据外还要有一些链，使">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/1567233700234.png">
-<meta property="og:updated_time" content="2019-09-17T04:20:33.816Z">
+<meta property="og:image" content="/2019/09/13/树/1568535579940.png">
+<meta property="og:image" content="/2019/09/13/树/1568643402182.png">
+<meta property="og:image" content="/2019/09/13/树/1568644887315.png">
+<meta property="og:image" content="/2019/09/13/树/1568645015854.png">
+<meta property="og:image" content="/2019/09/13/树/1568645214054.png">
+<meta property="og:image" content="/2019/09/13/树/1568645304147.png">
+<meta property="og:image" content="/2019/09/13/树/1568645350916.png">
+<meta property="og:image" content="/2019/09/13/树/1568645412335.png">
+<meta property="og:updated_time" content="2019-09-17T14:50:06.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation">
-<meta name="twitter:description" content="论文标题：Expectation-Maximization Attention Networks for Semantic Segmentation————ICCV 2019这篇文章利用EM算法改进attention机制：Expectation-Maximization Attention，下称EMA。与non-local的方法不同的是，文章并不是将feature map的所有像素点作为重构基，而">
-<meta name="twitter:image" content="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/1567233700234.png">
+<meta name="twitter:title" content="树">
+<meta name="twitter:description" content="一、树的定义和实现对于大量的输入数据，链表的线性访问耗时过多，树是一种简单的数据结构，其大部分操作的运行时间平均为$O(log N)$。 定义树的一种自然的方式是递归的方式，一棵树是一些节点的集合，由一个根节点r以及0个或者多个非空的子树组成，这些子树中的每一棵树的根都被来自根r的一条有向的边所连接。所以，一棵树是N个节点和N-1条边的集合。 实现树的一种方法是在每一个节点除数据外还要有一些链，使">
+<meta name="twitter:image" content="/2019/09/13/树/1568535579940.png">
   
     <link rel="alternative" href="/atom.xml" title="Alex-Qin的博客" type="application/atom+xml">
   
@@ -149,7 +156,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-树" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -161,8 +168,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/" class="archive-article-date">
-  	<time datetime="2019-08-23T09:20:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-23</time>
+<a href="/2019/09/13/树/" class="archive-article-date">
+  	<time datetime="2019-09-13T08:59:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
       </header>
@@ -171,49 +178,42 @@
       <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      论文学习-Expectation-Maximization Attention Networks for Semantic Segmentation
+      树
     </h1>
   
 </p></center>
 
       
-        <h4 id="论文标题：Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation————ICCV-2019"><a href="#论文标题：Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation————ICCV-2019" class="headerlink" title="论文标题：Expectation-Maximization Attention Networks for Semantic Segmentation————ICCV 2019"></a>论文标题：Expectation-Maximization Attention Networks for Semantic Segmentation————ICCV 2019</h4><p>这篇文章利用EM算法改进attention机制：Expectation-Maximization Attention，下称EMA。与non-local的方法不同的是，文章并不是将feature map的所有像素点作为重构基，而是利用EM算法找到一个更加紧凑的基，这么做可以大幅减少计算复杂度。也就是说，将attention map看做是隐含变量，bases作为参数，E步用于计算当前的参数计算feature map的期望，M步则是最大化E步得到的值，更新参数bases，且用于下一步E的计算。最后的输出是对bases的加权和，其中权重是最后一步得到的已经标准化的feature map。</p>
-<p>作者提到，EMA模块实现很简单，是一个轻量级的模块而且很容易应用于已有的神经网络中。为了理解EMA模块，论文中也简单介绍了一下EM算法、GMM和non-local的基本思想，这里回顾一下。</p>
-<h3 id="1、Expectation-Maximization-Algorithm"><a href="#1、Expectation-Maximization-Algorithm" class="headerlink" title="1、Expectation-Maximization Algorithm"></a>1、Expectation-Maximization Algorithm</h3><p>最大期望算法，或者说期望最大化算法，目的是在一个隐变量依赖概率模型中寻找最大似然解。</p>
-<p>假设$\mathbf{X}=\left\{\mathbf{x}_{1}, \mathbf{x}_{2}, \cdots, \mathbf{x}_{N}\right\}$为N个数据的集合，且每个$x_i$都有一个隐含的变量$z_i$，称$\{X,Z\}$为整体数据且其似然函数为$lnp(X,Z|\theta)$，其中$\theta$是模型的参数，已知的是隐变量的后验分布$lnp(Z|X,\theta)$，EM算法目的是通过E步和M步来最大化$lnp(X,Z|\theta)$。</p>
-<p>文章在这里接下来给出了E步和M步的计算公式，这里稍微提一下这个公式是怎么来的。</p>
-<a id="more"></a>
+        <h2 id="一、树的定义和实现"><a href="#一、树的定义和实现" class="headerlink" title="一、树的定义和实现"></a>一、树的定义和实现</h2><p>对于大量的输入数据，链表的线性访问耗时过多，树是一种简单的数据结构，其大部分操作的运行时间平均为$O(log N)$。</p>
+<p>定义树的一种自然的方式是递归的方式，一棵树是一些节点的集合，由一个根节点<code>r</code>以及0个或者多个非空的子树组成，这些子树中的每一棵树的根都被来自根<code>r</code>的一条有向的边所连接。所以，一棵树是N个节点和N-1条边的集合。</p>
+<p>实现树的一种方法是在每一个节点除数据外还要有一些链，使得该节点的每一个儿子都被一个链所链接，然而由于每个节点的儿子数可以变化很大并且事先不知道，因次在数据结构中建立到各子节点直接的链接会浪费太多空间，解决办法就是对每个节点维护两个链，一个指向第一个儿子节点，一个指向下一个兄弟节点，即将每个节点的所有儿子都放在树节点的链表中。<div align="center"><img src="/2019/09/13/树/1568535579940.png" alt="1568535579940"></div></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">    Object element;</span><br><span class="line">    TreeNode *firstChild; </span><br><span class="line">    TreeNode *nextSibling; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>上面已经整体数据的概率分布为$p(X,Z|\theta)$，且有$p(X|\theta)$是$p(X,Z|\theta)$的边缘概率，所以有<br>$$<br>ln\sum_zp(X,Z|\theta)=lnp(X|\theta)<br>$$<br>又因为观测变量的分布可以表示为：$p(X|\theta)=\sum_zp(Z|\theta)p(X|Z,\theta)$</p>
-<p>所以观测变量的最大似然函数可以表示为：<br>$$<br>L(\theta)=lnp(X|\theta)=ln\sum_zp(X,Z|\theta)=ln(\sum_zp(Z|\theta)p(X|Z,\theta))<br>$$<br>上式直接求极大值是困难的，因为存在一个隐变量Z，所以需要用迭代一步步接近最大值，假设在第i步后$\theta$的估计值为$\theta^{(i)}$，希望下一次估计的$\theta^{(i+1)}$能够使$L(\theta)$增大，因此有：<br>$$<br>L(\theta)-L(\theta^{(i)})=ln(\sum_zp(Z|\theta)p(X|Z,\theta))-lnp(X|\theta^{(i)})<br>$$<br>利用Jensen不等式展开并得其下界：<br>$$<br>L(\theta)-L(\theta^{(i)}) =\ln (\sum_{z} P(X | Z, \theta^{(i)}) \frac{P(X | Z, \theta) P(Z | \theta)}{P(X | Z, \theta^{(i)})})-\ln P(X | \theta^{(i)})\\\geqslant \sum_{Z} P(Z | X, \theta^{(i)}) \ln \frac{P(X | Z, \theta) P(Z | \theta)}{P(Z | X, \theta^{(i)})}-\ln P(X | \theta^{(i)})\\=\sum_{Z} P(Z | X, \theta^{(i)}) \ln \frac{P(X | Z, \theta) P(Z | \theta)}{P(Z | X, \theta^{(i)}) P(X | \theta^{(i)})}<br>$$<br>因此，问题可以转化为最大化其下界，我们将其中只含有$\theta^{(i)}$的作为已知量即常数项并将其除去，即：<br>$$<br>\theta^{(i+1)} =\arg \max _{\theta}\left(L\left(\theta^{(i)}\right)+\sum_{z} P\left(Z | X, \theta^{(i)}\right) \ln \frac{P(X | Z, \theta) P(Z | \theta)}{P\left(Z | X, \theta^{(i)}\right) P\left(X | \theta^{(i)}\right)}\right)\\=\arg \max _{\theta}\left(\sum_{z} P\left(Z | X, \theta^{(i)}\right) \ln (P(X | Z, \theta) P(Z | \theta))\right)\\=\arg \max _{\theta}\left(\sum_{Z} P\left(Z | X, \theta^{(i)}\right) \ln P(X, Z | \theta)\right) \ =\arg \max _{\theta} Q\left(\theta, \theta^{(i)}\right)<br>$$<br>将上式中的ln拆开，会得到分母项只包含$\theta{(i)}$且上式中的$L(\theta^{(i)})$也为常数项，所以整个EM算法就是求解上式。这里提下，EM算法对于初值的选取是敏感的。</p>
-<p>文章中提到，E步用于计算$ Q\left(\theta, \theta^{old}\right)$，首先要根据联合分布$p(X,Z|\theta)$来求得当前参数下的条件分布$p(Z|X,\theta^{old})$。然后M步用于最大化$ Q\left(\theta, \theta^{old}\right)$得到新的参数$\theta^{new}$。具体这些分布如何计算后面介绍，这里只给出基本思想：可以认为$p(Z|X,\theta^{old})$是当前参数的网络得到的attention map，也就是对feature map的每个点X对应的Z的分布。</p>
-<h3 id="2、Gaussiaon-Mixture-Model"><a href="#2、Gaussiaon-Mixture-Model" class="headerlink" title="2、Gaussiaon Mixture Model"></a>2、Gaussiaon Mixture Model</h3><p>高斯混合模型，下简称GMM，它其实是EM的一个应用场景，EM算法可以用于高斯混合模型的参数估计。多个高斯模型的线性组合可以表示为：<br>$$<br>p\left(\mathbf{x}_{n}\right)=\sum_{k=1}^{K} z_{n k} \mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)<br>$$<br>很明显，$\mu_k$和$\Sigma_k$分别是第k个高斯模型的均值和方差，这里有个小差异，更加一般的GMM表示为：<br>$$<br>p\left(\mathbf{X}\right)=\sum_{k=1}^{K} \pi_{k} \mathcal{N}\left(\mathbf{X} | \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)<br>$$<br>这里就有三个参数：$\pi_k,\mu_k,\Sigma_k$，其中，$\sum_k\pi_k=1$，而论文中舍去了$\pi_k$参数，用$z_{nk}$来代替，它可以认为是点$x_n$属于第k个分布的后验概率，所以也有$\sum_{k} z_{n k}=1$。而且这里先提一下$\pi_k$的更新公式：<br>$$<br>\pi_k= \frac{N_k}{N}<br>$$<br>其中，N是点的个数，$N_k$的表达式如下：<br>$$<br>N_k=\sum_{n=1}^{N} z_{n k}<br>$$<br>就是所有点属于第k个类别的概率和。可以看出$\sum_k\pi_k=\frac{\sum_k N_k}{N}=\frac{\sum_k\sum_n z_{nk}}{N}=\frac{\sum_n\sum_k z_{nk}}{N}=\frac{N}{N}=1$，所以$\pi_k$可以看做是第k个类别中的$z_{nk}$在每个$x_n$点上”表现总和”的一个权重(或者说第k个类别的”表现总和”占所有类别的”表现总和”的比例)，这一点可以从公式(6)和公式(7)中一个用的是$x_n$，一个用的是$X$就可以看出来。</p>
-<p>更加形象理解一下这个$z_{nk}$，上面的式子可以用EM推导的过程来解释一下，对比下式与公式(6)和(7)，且有：<br>$$<br>L(\theta)=lnp(X|\theta)=ln\sum_zp(X,Z|\theta)=ln(\sum_zp(Z|\theta)p(X|Z,\theta))<br>$$<br>$\pi_{k}$实际上就是$p(z_k|\theta)$，而$z_{nk}$实际上是$p(z_k|x_n,\theta)$，而后面的高斯分布表达式实际上就是X在Z条件下的概率分布。所以，整体数据的似然函数为：<br>$$<br>\ln p(\mathbf{X}, \mathbf{Z} | \boldsymbol{\mu}, \mathbf{\Sigma})=\sum_{n=1}^{N} \ln \left[\sum_{k=1}^{K} z_{n k} \mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)\right]<br>$$<br>接下来利用EM算法来求解GMM，首先要求的是$p(z_k|x_n,\theta)$，也就是$z_{nk}$。用$a_{nk}$来表示$x_n$是否属于第k个分布，也就是说$a_{nk}$的取值只有0和1，那么有<br>$$<br>z_{nk}=p(a_{nk}=1|x_n)=\frac{p(a_{nk}=1)p(x_n|a_{nk}=1)}{p(x_n,a_{ak}=1)}=\frac{p(a_{nk}=1)p(x_n|a_{nk}=1)}{\sum_{j=1}^Kp(a_{nj}=1)p(x_n|a_{nj=1})}\\=\frac{\mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)}{\sum_{j=1}^K\mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}\right)}<br>$$<br>所以在E步，计算<br>$$<br>z_{nk}^{new}=\frac{\mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{k}^{\mathrm{old}}, \boldsymbol{\Sigma}_{k}^{old}\right)}{\sum_{j=1}^{K} \mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{j}^{\mathrm{old}}, \boldsymbol{\Sigma}_{j}^{old}\right)}<br>$$<br>对公式(6)进行连乘并取对数得到对数似然函数，然后对$\mu_k$求导，令导数为0可以得到：<br>$$<br>-\sum_{n=1}^N\frac{\mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{k}^{\mathrm{}}, \boldsymbol{\Sigma}_{k}\right)}{\sum_{j=1}^{K} \mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{j}^{\mathrm{}}, \boldsymbol{\Sigma}_{j}\right)}\sum_{k=1}^K(x_n-\mu_k)=0<br>$$<br>所以可以得到M步的更新公式为：<br>$$<br>\boldsymbol{\mu}_{k}^{\mathrm{new}}=\frac{1}{N_{k}} \sum_{n=1}^{N} z_{n k}^{\mathrm{new}} \mathbf{x}_{n}<br>$$<br>这里的$N_k$就是公式(9)中表示的。</p>
-<p>同理可以对$\Sigma_k$求导得<br>$$<br>\Sigma_{k}^{\mathrm{new}}=\frac{1}{N_{k}} \sum_{n=1}^{N} z_{n k}^{\mathrm{new}}\left(\mathrm{x}_{n}-\mu_{k}^{\mathrm{old}}\right)\left(\mathrm{x}_{n}-\mu_{k}^{\mathrm{old}}\right)^{\top}<br>$$<br>GMM的参数收敛后，就可以对$x_n$重新估值，这是论文中所提出的一个方法，相当于利用GMM对数据进行重新评估，得到一个更加紧凑的数据分布：<br>$$<br>\mathbf{x}_{n}^{\mathrm{new}}=\sum_{k=1}^{K} z_{n k}^{\mathrm{new}} \boldsymbol{\mu}_{k}^{\mathrm{new}}<br>$$</p>
-<h3 id="3、Non-local"><a href="#3、Non-local" class="headerlink" title="3、Non-local"></a>3、Non-local</h3><p>深度学习领域提到Non-local，是一种自注意力机制方法，其可以通过在所有位置处的嵌入的加权求和来计算在一个位置处的上下文编码。简单来讲就是普通的一层卷积是一个local的操作，为了能获得一个”大范围“的关系依赖，一般来说是不断叠加这样的特征提取层，这样高层网络的感受野就越来越大，获取的信息分布广度野越来越高，但是带来的是难以计算和优化，因此便有了non-local机制，形式化定义为：<br>$$<br>\mathbf{y}_{i}=\frac{1}{\mathcal{C}\left(\mathbf{x}_{i}\right)} \sum_{j} f\left(\mathbf{x}_{i}, \mathbf{x}_{j}\right) g\left(\mathbf{x}_{j}\right)<br>$$<br>表达的意思就是利用$x_i$附近的所有$x_j$的信息来得到$y_i$，$C(x_i)$是一个标准化因子，$f$的输出是一个标量，它表示位置i和位置j之间的关系，$g$是一个unary function，它是用来计算输入信号在位置j的一个表示，也就是对位置j的原始数据进行了一个处理，由于是遍历所有的j的位置，也就是所有的位置信号都参与加权求和，所以是non-local。</p>
-<p>non-local的作者提到，对于$f、g$的形式，non-local模块并不敏感，所以这里$f、g$有多种形式可以选择，一般为了计算简单，取$g(x_j)=W_gx_j$，$f$的选择有很多，这里列出四种：</p>
-<ol>
-<li>高斯函数：$f(x_i,x_j)=e^{x_i^Tx_J}$，此时$C(x_i)=\sum_jf(x_i,x_j)$</li>
-<li>embedded Gaussian函数：$f(x_i,x_j)=e^{\theta(x_i)^T\phi(x_j)}$，其中，$\theta(x_i)=W_\theta x_i$，$\phi(x_j)=W_\phi x_j$。</li>
-<li>dot product：$f(x_i,x_j)=\theta(x_i)^T\phi(x_j)$，此时$C(x_i)=N$。</li>
-<li>concatenation：$f(x_i,x_j)=ReLU(w_f^T[\theta(x_i),\phi(x_j)])$，$w_f$是将连接在一起的vector映射到一个标量的矩阵，此时$C(x_i)=N$。</li>
-</ol>
-<p>论文中考虑了这样一种情况，$\mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)$可以看做是一个关于$x_j$和$\mu_k$特别的核函数$f(x_n,\mu_k)$，再考虑公式(15)和公式(11)，因为$z_{nk}^{new}=\frac{\mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{k}^{\mathrm{old}}, \boldsymbol{\Sigma}_{k}^{old}\right)}{\sum_{j=1}^{K} \mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{j}^{\mathrm{old}}, \boldsymbol{\Sigma}_{j}^{old}\right)}$，可以认为它是带有标准化因子的核函数，所以$x_n=\sum_{k=1}^Kz_{nk}\mu_k$可以看做就是一个特殊的公式(16)。</p>
-<p>如果用GMM的角度去思考non-local，可以看出non-local机制实际上就是在GMM收敛后对$X$的重新评估。</p>
-<h3 id="4、Expectation-Maximization-Attention"><a href="#4、Expectation-Maximization-Attention" class="headerlink" title="4、Expectation-Maximization Attention"></a>4、Expectation-Maximization Attention</h3><p>考虑$X$是CNN输出的一个feature map，为了方便讨论，这里以一个样本来进行分析，也就是batch_size=1，所以$X$的size为$H\times W\times C$。为了简化，将$X$ reshape为$N\times C$，其中$N=H\times W$，所以$x_i$表示的是像素点i处的$C$维的特征向量。论文将EM-Attention操作分为三个部分：responsibility estimation($A_E$)、likelihood maximization($A_M$)、data re-estimation($A_R$)。</p>
-<p>给出输入$\mathbf{X} \in \mathbb{R}^{N \times C}$和初始化的bases$\mu \in \mathbb{R}^{K \times C}$，$A_E$用于估计隐变量或者说计算相应值$\mathbf{Z} \in \mathbb{R}^{N \times K}$，$A_M$利用该估计值更新bases$\mu$。$A_E$和$A_M$即EM中的E步和M步，交替运行且事实上指定了迭代的次数。最后$A_R$融合$\mu$和$Z$来重构$X$为$Y$并输出。文中提到一点，因为$K \ll N$，所以重构的$\tilde{\mathbf{X}}$是$X$的子空间，且移除了大部分的噪声，使得后续对每个像素点进行分类更加容易处理。除此之外，该方法还使得算法复杂度从$O(N^2)$降为$O(NKT)$，而且在作者的实验中，EM算法的迭代次数$T$只需要3就可以得到很好的结果，所以绥中算法复杂度降为$O(NK)$。</p>
-<h5 id="4-1、Responsibility-Estimation"><a href="#4-1、Responsibility-Estimation" class="headerlink" title="4.1、Responsibility Estimation"></a>4.1、Responsibility Estimation</h5><p>相当于EM中的E步，如同GMM中所述，改步用于计算$z_{nk}$，但是不再是$\mathcal{N}\left(\mathbf{x}_{n} | \boldsymbol{\mu}_{k}^{\mathrm{}}, \boldsymbol{\Sigma}_{k}^{}\right)$，这个式子只是在GMM中表示对$x_n$和$\mu_k$的关系，也可以认为是一种对$x_n$和$\mu_k$的操作。在论文中，作者将核函数写成通用的$\mathcal{K}\left(\mathbf{x}_{n}, \boldsymbol{\mu}_{k}\right)$。所以有：<br>$$<br>z_{n k}=\frac{\mathcal{K}\left(\mathbf{x}_{n}, \boldsymbol{\mu}_{k}\right)}{\sum_{j=1}^{K} \mathcal{K}\left(\mathbf{x}_{n}, \boldsymbol{\mu}_{j}\right)}<br>$$<br>核函数$\mathcal{K}$有多种选择，比如：$\mathbf{x_n}^{\top} \mathbf{\mu_k}$、$\exp \left(\mathbf{x_n}^{\top} \mathbf{\mu_k}\right)$、$||x_n-\mu_k||_2^2$或者类似于GMM中的高斯核函数$exp(\frac{-||x_n-\mu_k||_2^2}{\sigma^2})$等等，文章后面给出了不同的核函数对应的结果对比，这里方便说明，就用$\mathcal{K}\left(\mathbf{x}_{n}, \boldsymbol{\mu}_{k}\right)=\mathbf{x_n}^{\top} \mathbf{\mu_k}$。公式(17)可以写成矩阵乘法和一个softmax操作的形式，所以有第t次的E步会得到：<br>$$<br>Z^{(t)}=softmax(\lambda X(\mu^{(t-1)})^T)<br>$$<br>其中$\lambda$是控制$Z$的分布的超参数，后面会有详细分析该超参数的作用。</p>
-<h5 id="4-2、Likelihood-Maximization"><a href="#4-2、Likelihood-Maximization" class="headerlink" title="4.2、Likelihood Maximization"></a>4.2、Likelihood Maximization</h5><p>相当于EM中的M步，最大化似然函数更新参数$\mu$。公式与GMM中分析的是一样的，进行了X的加权求和处理：<br>$$<br>\mu_k^{(t)}=\frac{\sum_{n=1}^Nz_{nk}^{(t)}x_n}{\sum_{m=1}^Nz_{mk}^{(n)}}<br>$$</p>
-<p>值得一提的是当公式(18)中的$\lambda \rightarrow \infty$，此时$\{z_{n1},z_{n2}\cdots,z_{nk}\}$成为one-hot embedding，这种情况下每个像素只会属于一个基，且基由分配给它的那些像素的平均值更新，这是K-means聚类的做法，所以可以认为$A_E$和$A_M$是K-means聚类的一个”软版本”(soft version)。</p>
-<h5 id="4-3、Data-Reestimation"><a href="#4-3、Data-Reestimation" class="headerlink" title="4.3、Data Reestimation"></a>4.3、Data Reestimation</h5><p>$A_R$步用于重构输入$X$，在$A_E$和$A_M$步交替迭代了T步以后，利用公式(15)重构为$\tilde{\mathbf{X}}$：<br>$$<br>\tilde{\mathbf{X}}=Z^{(T)}\mu^{(T)}<br>$$<br>因为$\tilde{\mathbf{X}}$是由一个紧凑的基$\mu$得来的，所以相比于$X$，其具有低秩的特征，即目标区域内的特征方差小于输入数据$X$。</p>
-<h3 id="5、EMA-Unit"><a href="#5、EMA-Unit" class="headerlink" title="5、EMA Unit"></a>5、EMA Unit</h3><p>论文详细说明了如何将EMA应用到神经网络中，并且将其用于语义分割。从三个方面介绍：EMAU的结构、Bases Maintenance和Bases Normalization。</p>
-<h5 id="5-1、EMAU结构"><a href="#5-1、EMAU结构" class="headerlink" title="5.1、EMAU结构"></a>5.1、EMAU结构<div align="center"><img src="/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/1567233700234.png" alt="1567233700234"></div></h5><p>如上图所示，额外加了一个残差结构，图上也可以明显的看出$\tilde{\mathbf{X}}$比$X$有着更加紧凑的特征。前后各添加了个1×1的卷积，结构上很像bottleneck，只是把中间的3×3的卷积换成了EMA。前面的卷积操作是不带有ReLU操作的，这么做是为了使得输出范围在由$(0,+\infty)$变为$(-\infty,+\infty)$，这个操作十分重要，否则$\mu$的范围减半，相当于只有普通卷积核参数的一半。后面的卷积是为了将$\tilde{\mathbf{X}}$转换到$X$的残余空间中，这样才能相加。</p>
-<p>接着论文分析了一下EMA的参数量和计算量，前面提到，对于C通道的输入数据来说，整个$A_R、A_M、A_R$操作的复杂度为$O(NKC)$，由于网络中间的C很大，可以认为$K\ll C$，因此EMA的操作仅相当于一个1×1的卷积(输入和输出通道都为C，且输出大小为N(或者说是H×W))。算上额外的两个1×1的卷积，整个EMAU仅相当于1/3个3×3卷积(输入输出通道数相同)，而且EMAU的参数量只有KC。</p>
-<h5 id="5-2、Bases-Maintenance"><a href="#5-2、Bases-Maintenance" class="headerlink" title="5.2、Bases Maintenance"></a>5.2、Bases Maintenance</h5><p>在这篇论文所论述的情况下，EM算法的一个问题就是bases的初始化。EM算法虽然可以保证可以收敛，但不一定得到的是全局最优，因为虽然整体数据的似然函数是有上界的，但是E和M步都是在不断抬高下界，所以可能会收敛到局部极值。</p>
-<p>因为图像语义分割涉及到很多图像，且每幅图像都有着不同的像素特征，因此不可能只用一个$\mu$在这些不同的图片上一起进行计算，所以EMAU是针对每张图片进行的。</p>
-<p>对于第一个mini-batch的$\mu^{(0)}$，使用Kaiming的初始化方法。对于下一个batch来说，一个简单的选择就是用标准的反向传播来更新$\mu^{(0)}$，但是$A_E$和$A_M$的交替迭代可以看成是RNN的一种展开，所以经过$A_E$和$A_M$后将会导致梯度爆炸或者消失。这里作者使用了BN中使用的方法：moving averaging，在对一张图迭代完以后，可以将$\mu^{(T)}$作为下一张图的$\mu^{(0)}$的一个偏差更新，这个偏差是由之前的图像采样得到的。为了减小这个偏差，首先在一个mini-batch上对$\mu^{(T)}$做平均，然后进行更新下一张图的$\mu^{(0)}$：<br>$$<br>\mu^{(0)}\leftarrow\alpha\mu^{(0)}+(1-\alpha)\overline{\mu}^{(T)}<br>$$<br>其中$\alpha$是一个动量，在验证过程保持$\mu^{(0)}$不变。</p>
-<h5 id="5-3、Bases-Normalization"><a href="#5-3、Bases-Normalization" class="headerlink" title="5.3、Bases Normalization"></a>5.3、Bases Normalization</h5><p>除了bases的初始化问题，但是由于RNN结构的缺陷，在$A_E$和$A_M$交替迭代的过程中还是不能保证$\mu^{(t)}$的更新是可靠的，上述的moving averaging要求$\overline{\mu}^{(T)}$与$\mu^{(0)}$不能太过不同，否则也会像反向传播一样崩溃，公式(21)说明了这一点。因此还需要对$\mu^{(t)},1\leq t\leq T$的取值范围进行限制。为此，还需要进行归一化，但是一般的BN或者LN(layer Normalization)会使得每个$\mu_k^{(t)}$的方向产生变化，使得这些基的性质和语义信息发生改变。因此选用L2Norm，对每个$\mu_k^{(t)}$除以它的长度。</p>
-<p>论文后面还将EMA与Double Attention Block(出自A^2^Net)做了一个比较，接着还有一系列的对比实验，这里就不放出来了。</p>
+<h2 id="二、二叉树"><a href="#二、二叉树" class="headerlink" title="二、二叉树"></a>二、二叉树</h2><p>每个节点最多有两个儿子的树即二叉树。因此这就可以直接保存父亲到每个儿子的直链(因为最多就两个)，每个子节点也不需要去保存指向下一个兄弟节点的链。即：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BinaryNode</span>&#123;</span></span><br><span class="line">    Object element;</span><br><span class="line">    BinaryNode *left; <span class="comment">//左儿子</span></span><br><span class="line">    BinaryNode *right; <span class="comment">//右儿子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二叉树的一个例子——表达式树"><a href="#二叉树的一个例子——表达式树" class="headerlink" title="二叉树的一个例子——表达式树"></a>二叉树的一个例子——表达式树</h5><p>表达式树的叶子节点是操作数，比如常量或者变量的名字，而其它的节点为操作符。一般情况下操作符都是二目的，所以表达式树是二叉树，也存在一个节点可能只有一个儿子的情况，此时该节点的操作符是一目的。给出一个表达式树：<div align="center"></div></p>
+<p><img src="/2019/09/13/树/1568643402182.png" alt="1568643402182"></p>
+<p>可以递归计算左子树和右子树所得到的值应用在根节点运算符上而得到整个树的表达式。上图中左子树的值为<code>a+(b*c)</code>，右子树的值为<code>((d*e)+f)*g</code>，因此整个树的表示为<code>(a+(b*c))+(((d*e)+f)*g)</code>。该结果得到的式子可以看出有很多左右括号，是因为每个递归都会计算出左右子树(除了叶子节点)的带括号的表达式。</p>
+<p>得到上式是需要遍历整个树的所有节点的，一般分为三种方式遍历：先序、中序、后序。</p>
+<p>中序遍历一个表达式树是很让人理解的一种方式，先递归地产生一个带括号的左表达式，然后打印在根节点处的操作符，再递归地产生一个带括号的右表达式。即(左，节点，右)的方式。</p>
+<p>后序遍历就是先递归地产生左右子树的表达式，再打印运算符这样得到的表达式为<code>abc*+de*f+g*+</code>这就是在之前介绍栈的过程中说到的后缀表示法。</p>
+<p>先序遍历是先打印根节点，再递归打印左右子树的表达式。此时得到的为<code>++a*bc*+*defg</code>，这是一种不太常用的前缀记法。</p>
+<hr>
+<p>当已知一个后缀表达式，给出一个算法来将其转变成表达树。并且前面已经提到如何将一个中缀表达式转变成后缀表达式，所以这两种常用的输入类型都能够通过该算法生成表达式树。</p>
+<p>这里的方法类似于对后缀表达式求值得算法。当遇到操作数时，就建立一个单节点树并将指向它的指针入栈，如果遇到操作符，就从栈中弹出指向两棵树T<del>1</del>和T<del>2</del>的两个指针，T<del>1</del>先弹出，形成一个新的树，该树的根节点为当前读入的操作符，它的左右儿子分别为T<del>2</del>和T<del>1</del>，然后将新的树的指针入栈。</p>
+<p>举个例子：输入为<code>ab+cde+**</code>，前两个读入数据为操作数，所以创建两个单节点树并入栈。<div align="center"><img src="/2019/09/13/树/1568644887315.png" alt="1568644887315"></div></p>
+<p>接着，读入<code>+</code>，因此，指向两棵树的指针被弹出，形成一个新的树并将其压入栈中，注意，此时后入栈的<code>b</code>先出栈，是新树的右儿子。<div align="center"><img src="/2019/09/13/树/1568645015854.png" alt="1568645015854"></div></p>
+<p>接着读入<code>c,d,e</code>，同样创建新的单节点树。<div align="center"><img src="/2019/09/13/树/1568645214054.png" alt="1568645214054"></div></p>
+<p>然后读入<code>+</code>，合并栈顶的两个单节点树。<div align="center"><img src="/2019/09/13/树/1568645304147.png" alt="1568645304147"></div></p>
+<p>继续，读入<code>*</code>，合并栈顶的两个树。<div align="center"><img src="/2019/09/13/树/1568645350916.png" alt="1568645350916"></div></p>
+<p>最后读入<code>*</code>，合并，指向最后的树的指针被留在栈中。<div align="center"><img src="/2019/09/13/树/1568645412335.png" alt="1568645412335"></div></p>
+<h5 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h5><p>二叉树的重要应用就是搜索，假设现在的二叉树中每个节点所存储的数据为一个整数，二叉查找树就是对于每一个节点来说，其左子树的所有项的值都小于该节点，其右子树的所有项的值均大于该节点，这里为了简单起见不考虑有重复项的情况。也就是说二叉查找树是一种特殊的二叉树，其所有的元素可以用某一种一致的方式排序。下面给出二叉查找树<code>BinarySearchTree</code>类模板的接口：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by ALEX on 2019/9/16.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CLIONPROJECTS_BINARYSEARCHTREE_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CLIONPROJECTS_BINARYSEARCHTREE_H</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Comparable&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySearchTree</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    BinarySearchTree();</span><br><span class="line"></span><br><span class="line">    BinarySearchTree(<span class="keyword">const</span> BinarySearchTree &amp;rhs);</span><br><span class="line"></span><br><span class="line">    BinarySearchTree(BinarySearchTree &amp;&amp;rhs);</span><br><span class="line"></span><br><span class="line">    ~BinarySearchTree();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">const</span> Comparable &amp;<span class="title">findMin</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">const</span> Comparable &amp;<span class="title">findMax</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">contains</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printTree</span><span class="params">(ostream &amp;out = <span class="built_in">cout</span>)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Comparable &amp;&amp;x)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span></span>;</span><br><span class="line"></span><br><span class="line">    BinarySearchTree &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> BinarySearchTree &amp;rhs);</span><br><span class="line"></span><br><span class="line">    BinarySearchTree &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> BinarySearchTree &amp;&amp;rhs);</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BinaryNode</span> &#123;</span></span><br><span class="line">        Comparable element;</span><br><span class="line">        BinaryNode *left;</span><br><span class="line">        BinaryNode *right;</span><br><span class="line"></span><br><span class="line">        BinaryNode(<span class="keyword">const</span> Comparable &amp;theElement, BinaryNode *lt, BinaryNode *rt) : element&#123;theElement&#125;, left&#123;lt&#125;,</span><br><span class="line">                                                                                   right&#123;rt&#125; &#123;&#125;</span><br><span class="line"></span><br><span class="line">        BinaryNode(Comparable &amp;&amp;theElement, BinaryNode *lt, BinaryNode *rt) : element&#123;<span class="built_in">std</span>::move(theElement)&#125;, left&#123;lt&#125;,</span><br><span class="line">                                                                              right&#123;rt&#125; &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    BinaryNode *root;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x, BinaryNode *&amp;t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Comparable &amp;&amp;x, BinaryNode *&amp;t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x, BinaryNode *&amp;t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">BinaryNode *<span class="title">findMin</span><span class="params">(BinaryNode *t)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">BinaryNode *<span class="title">findMax</span><span class="params">(BinaryNode *t)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">contains</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x, BinaryNode *t)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">makeEmpty</span><span class="params">(BinaryNode *&amp;t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printTree</span><span class="params">(BinaryNode *t, ostream &amp;out)</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">BinaryNode *<span class="title">clone</span><span class="params">(BinaryNode *t)</span> <span class="keyword">const</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">//CLIONPROJECTS_BINARYSEARCHTREE_H</span></span></span><br></pre></td></tr></table></figure>
+
+<p>私有成员函数通过传递引用调用的方法来改变私有数据成员，也就是说，公共成员函数可以通过把指向根节点的指针传递给私有成员函数，然后私有成员函数改变根的值使得<code>root</code>指向另外的”根”节点，这在<code>insert</code>时会体现得很明显。下面给出一些公有成员函数如何调用私有成员函数的方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">contains</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> contains(x, root);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span> </span>&#123;</span><br><span class="line">       insert(x, root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Comparable &amp;&amp;x)</span> </span>&#123;</span><br><span class="line">       insert(x, root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">const</span> Comparable &amp;x)</span> </span>&#123;</span><br><span class="line">       remove(x, root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -227,23 +227,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像分割</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">EM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GMM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">non-local</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ADT</a>
         		</li>
       		
 		</ul>
@@ -299,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/08/23/论文学习-Expectation-Maximization-Attention-Networks-for-Semantic-Segmentation/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/09/13/树/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/11/栈、队列ADT/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          栈、队列 ADT
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/21/vector和list的实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vector和list的实现</div>
+    <a href="/2019/09/11/栈、队列ADT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">栈、队列 ADT</div>
       <i class="icon-circle-right"></i>
     </a>
   

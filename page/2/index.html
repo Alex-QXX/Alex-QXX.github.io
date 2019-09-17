@@ -148,6 +148,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-算法分析基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        
+<a href="/2019/08/16/算法分析基础/" class="archive-article-date">
+  	<time datetime="2019-08-16T07:02:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2019/08/16/算法分析基础/">算法分析基础</a>
+    </h1>
+  
+</p></center>
+
+      
+        <p><strong>算法</strong>是为求解一个问题需要遵循的、被清楚地指定的简单指令的集合。对于一个问题，一旦某种算法给定并且被确定是正确的，那么最重要的一步就是确定该算法将需要多少诸如时间或者空间等资源量的问题。</p>
+<h2 id="一、数学基础"><a href="#一、数学基础" class="headerlink" title="一、数学基础"></a>一、数学基础</h2><p>首先给出四个定义：<div align="center"><img src="/2019/08/16/算法分析基础/1565939372765.png" alt="1565939372765"></div></p>
+<p>目的是为了在函数间建立一种相对的级别，举个例子：对于较小的N来说，1000N是比N^2^大的，但是N^2^以更快的速度增长，这种情况下，N=1000是一个转折点，在1000以后，N^2^将一直比1000N大。定义2.1就是说，最后总会存在某个点n<del>0</del>，从该点以后，$c \cdot f(N)$总是至少与$T(N)$一样大，在刚刚的例子中，可以令$T(N) = 1000N, f(N)=N^2, n_0=1000,c=1$，也可以认为$n_0=10,c=100$,此时，$T(N)=10N$，因此可以说$1000N=O(N^2)$，叫做大O标记法。</p>
+<p>通常当一个函数表示为$T(N)=O(f(N))$时，是在说明函数$T(N)$是以不快于$f(N)$的速度增长，因此$f(N)$是$T(N)$的一个<strong>上界</strong>，同理反过来写就是$f(N)=\Omega(T(N))$，意味着$T(N)$是$f(N)$的<strong>下界</strong>。为此，可以得到一些重要的结论：<div align="center"><img src="/2019/08/16/算法分析基础/1565940493512.png" alt="1565940493512"></div></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/16/算法分析基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C++案例：设计矩阵类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -486,92 +570,9 @@
 
 
   
-    <article id="post-C++回顾第一部分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        
-<a href="/2019/06/28/C++回顾第一部分/" class="archive-article-date">
-  	<time datetime="2019-06-28T04:31:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2019/06/28/C++回顾第一部分/">C++回顾：第一部分</a>
-    </h1>
-  
-</p></center>
-
-      
-        <h2 id="一、函数与参数"><a href="#一、函数与参数" class="headerlink" title="一、函数与参数"></a>一、函数与参数</h2><h5 id="1、传值参数"><a href="#1、传值参数" class="headerlink" title="1、传值参数"></a>1、传值参数</h5><p>考察一个函数来计算表达式<code>a+b*c</code>,其中，a，b，c是整数，结果也是一个整数，所以有</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">abc1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    reture a + b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>a，b，c都是函数abc的<strong>形参</strong>，调用的时候：<code>z=abc(2,x,y)</code>2，x，y为对应的<strong>实参</strong>。a,b,c实际上是<strong>传值参数</strong>，在函数执行前，把实参复制给形参，这个过程是由形参类型的<strong>复制构造函数</strong>来完成。</p>
-<p>如果实参和形参的类型不同，必须进行类型转换，实参会转换成形参的类型。当函数运行结束的时候，形参的<strong>析构函数</strong>被调用，释放形参。当函数运行完后，形参的值不会被复制到对于的实参中。<strong>因此，函数调用是不会修改与形参对应实参的值</strong>。</p>
-<h5 id="2、模板函数"><a href="#2、模板函数" class="headerlink" title="2、模板函数"></a>2、模板函数</h5><p>如果希望编写一段通用的函数来计算所有类型变量的a，b，c的<code>a+b*c</code>，那么可以使用模板语句。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">abc2</span>(<span class="title">T</span> <span class="title">a</span>, <span class="title">T</span> <span class="title">b</span>, <span class="title">T</span> <span class="title">c</span>)&#123;</span></span><br><span class="line">    <span class="keyword">return</span> a + b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/28/C++回顾第一部分/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
